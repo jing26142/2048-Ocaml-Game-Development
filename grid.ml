@@ -1,5 +1,6 @@
 (* TODO: grid data structure structure *)
 exception Failure
+
 type t = {
   value : int;
   pos : int*int;
@@ -9,8 +10,8 @@ type cell = {
   content : t option;
 }
 
-type gridd = {
-  grid : cell array list;
+type grid = {
+  c_grid : cell array list;
 }
 
 let rec help_add i count g= 
