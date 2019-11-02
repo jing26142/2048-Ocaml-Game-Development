@@ -1,0 +1,1 @@
+(* TODO: Grid data structure signature. *)
