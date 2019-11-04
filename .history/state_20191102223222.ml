@@ -21,6 +21,3 @@ let grid st =
 
 let score st =
   st.score
-
-let new_state  new_grid score =
-  {current_grid = new_grid; score = 0}

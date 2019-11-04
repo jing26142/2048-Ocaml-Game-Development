@@ -10,7 +10,7 @@ let init_state () =
   let r21 = Random.int 4 in
   let r22 = Random.int 4 in
   let r21 = if (r21 = r11 && r22 = r22) then (r11+1) mod 4 else r21 in
-  let grid = empty in {
+  let grid = empty in{
     current_grid = gen_box 2 r11 r12 grid |> gen_box 2 r21 r22;
     score = 0
   }
@@ -21,6 +21,3 @@ let grid st =
 
 let score st =
   st.score
-
-let new_state  new_grid score =
-  {current_grid = new_grid; score = 0}

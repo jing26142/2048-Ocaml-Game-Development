@@ -53,7 +53,7 @@ let rec right_box cell grid =
   |None -> grid
   |Some box -> move_right box grid
 
-let move_all_right grid = 
+let moveall_right grid = 
   grid |> right_box (address 0 3 grid) |> right_box (address 0 2 grid)
   |>right_box (address 0 1 grid) |> right_box (address 0 0 grid)
   |> right_box (address 1 3 grid) |> right_box (address 1 2 grid)
@@ -73,7 +73,8 @@ let rec interface state =
     |Up -> print_endline "thank you for playing"; exit 0; ()
     |Down -> print_endline "thank you for playing"; exit 0; ()
     |Left ->print_endline "thank you for playing"; exit 0; ()
-    |Right -> interface (new_state (move_all_right (grid state)) 0)
+    |Right -> interface (new_state 
+                           (move_right (box_of_cell (address 1 0 (grid state))) (grid state)) 0)
   with
   | _ -> print_endline "You did something wrong, please try again" ; interface state
 

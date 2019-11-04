@@ -1,4 +1,4 @@
-
+STATE.MLI
 
 (**
    Representation of dynamic adventure state.
@@ -20,5 +20,3 @@ val grid : t -> Grid.t
 
 (** [score st] is the current score of the state. *)
 val score : t -> int
-
-val new_state: Grid.t -> int -> t

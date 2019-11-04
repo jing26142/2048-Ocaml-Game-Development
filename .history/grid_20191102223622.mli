@@ -9,7 +9,7 @@
 type t
 
 (** The type of a box *)
-type box
+type box = int
 
 (** The type of an individual cell in the grid. *)
 type cell = box option
@@ -19,27 +19,13 @@ type cell = box option
     Requires: a, b in 0..3 *)
 val address : int -> int -> t -> cell
 
-(** [gen_box v a b g] is a [g] with box of value [v] in cell with
+(** [gen_box v a b g] is a copy of [g] with box of value [v] in cell with
     position (a, b).
     Requires: cell at position (a, b) is empty. *)
 val gen_box: int -> int -> int -> t -> t
 
-(** [remove_box a b g] is [g] with cell location (a,b) as None
-*)
-val remove_box: int -> int -> t -> t
-
 (** [value bx] is the value associated with [bx] *)
 val value : box -> int
 
-val pos: box -> int*int
-
 (** [empty] is the empty grid. *)
 val empty : t
-
-val grid_size : t -> int
-
-(**[box_of_cell (Some box)] is [box].
-   Raise: Failure if not box *)
-val box_of_cell: box option -> box
-
-val to_matrix: t -> int list list

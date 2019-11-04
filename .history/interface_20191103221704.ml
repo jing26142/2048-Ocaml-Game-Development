@@ -73,7 +73,8 @@ let rec interface state =
     |Up -> print_endline "thank you for playing"; exit 0; ()
     |Down -> print_endline "thank you for playing"; exit 0; ()
     |Left ->print_endline "thank you for playing"; exit 0; ()
-    |Right -> interface (new_state (move_all_right (grid state)) 0)
+    |Right -> interface (new_state 
+                           (move_all_right (grid state)) 0)
   with
   | _ -> print_endline "You did something wrong, please try again" ; interface state
 
