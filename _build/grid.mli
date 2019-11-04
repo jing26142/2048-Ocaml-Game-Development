@@ -43,3 +43,5 @@ val grid_size : t -> int
 val box_of_cell: box option -> box
 
 val to_matrix: t -> int list list
+
+val random: t -> t

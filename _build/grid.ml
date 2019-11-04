@@ -49,3 +49,13 @@ let rec to_matrix g =
   |h::t -> Array.fold_left (fun lst cell -> lst @ [content_box cell]) [] h ::
            to_matrix t
 
+
+let random_help = function
+  |None -> true
+  |Some box -> false
+
+let rec random g =
+  let r11 = Random.int 4 in
+  let r12 = Random.int 4 in
+  if (random_help (address r11 r12 g)) then gen_box 2 r11 r12 g
+  else random g

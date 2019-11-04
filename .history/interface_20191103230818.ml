@@ -132,7 +132,7 @@ let rec move_down box grid =
   else match (address (r+1) c grid) with
     |None -> gen_box (vbox) (r+1) c grid |>
              remove_box r c |> 
-             move_down (box_of_cell (address (r+1) c grid))
+             move_down (box_of_cell (address (r-1) c grid))
     |Some box2 -> if ((value box2) = value box) then
         let new_v = 2*value box in remove_box r c grid 
                                    |> remove_box (r+1) c

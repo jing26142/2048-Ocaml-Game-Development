@@ -50,12 +50,10 @@ let rec to_matrix g =
            to_matrix t
 
 
-let random_help = function
-  |None -> true
-  |Some box -> false
+let content_box = function
+  |None -> 0
+  |Some box -> value box
 
-let rec random g =
+let rec random =
   let r11 = Random.int 4 in
   let r12 = Random.int 4 in
-  if (random_help (address r11 r12 g)) then gen_box 2 r11 r12 g
-  else random g

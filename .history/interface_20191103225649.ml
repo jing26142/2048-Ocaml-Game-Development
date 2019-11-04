@@ -132,7 +132,7 @@ let rec move_down box grid =
   else match (address (r+1) c grid) with
     |None -> gen_box (vbox) (r+1) c grid |>
              remove_box r c |> 
-             move_down (box_of_cell (address (r+1) c grid))
+             move_down (box_of_cell (address r (c+1) grid))
     |Some box2 -> if ((value box2) = value box) then
         let new_v = 2*value box in remove_box r c grid 
                                    |> remove_box (r+1) c
@@ -148,11 +148,10 @@ let rec down_box cell grid =
 
 let move_all_down grid =
   grid |> down_box (address 3 0 grid) |> down_box (address 2 0 grid)|>down_box(address 1 0 grid)
-  |>down_box(address 0 0 grid) |> down_box (address 3 1 grid) |> down_box (address 2 1 grid)
-  |>down_box (address 1 1 grid) |>down_box(address 0 1 grid) |> down_box (address 3 2 grid) 
-  |> down_box (address 2 2 grid) |>down_box (address 1 2 grid) |>down_box (address 0 2 grid)
-  |> down_box (address 3 3 grid) |> down_box (address 2 3 grid)|>down_box (address 1 3 grid)
-  |>down_box (address 0 3 grid)
+  |>down_box(address 0 0 grid) |> down_box (address 3 1 grid) |> down_box (address 2 1 grid)|>down_box (address 1 1 grid)
+  |>down_box(address 1 0 grid)|> down_box (address 3 2 grid) |> down_box (address 2 2 grid)|>down_box (address 1 2 grid)
+  |>down_box (address 0 2 grid)|> down_box (address 3 3 grid) |> down_box (address 3 2 grid)|>down_box (address 3 1 grid)
+  |>down_box (address 3 0 grid)
 
 let rec interface state =
   display (to_matrix (grid state));

@@ -16,30 +16,13 @@ ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules
 # Target: grid.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:grid.cmo, file:grid.ml, implem, ocaml, quiet, traverse }
 ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o grid.cmo grid.ml # cached
 # Target: interface.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:interface.ml, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules interface.ml > interface.ml.depends
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules interface.ml > interface.ml.depends # cached
 # Target: state.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:mli, file:state.mli, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules state.mli > state.mli.depends # cached
 # Target: state.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:state.mli, interf, ocaml, quiet, traverse }
 ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o state.cmi state.mli # cached
 # Target: interface.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:interface.cmo, file:interface.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
-+ ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
-File "interface.ml", line 72, characters 52-58:
-72 |     |Quit -> print_endline "thank you for playing"; exit 0; ()
-                                                         ^^^^^^
-Warning 21: this statement never returns (or has an unsound type.)
-File "interface.ml", line 73, characters 50-56:
-73 |     |Up -> print_endline "thank you for playing"; exit 0; ()
-                                                       ^^^^^^
-Warning 21: this statement never returns (or has an unsound type.)
-File "interface.ml", line 74, characters 52-58:
-74 |     |Down -> print_endline "thank you for playing"; exit 0; ()
-                                                         ^^^^^^
-Warning 21: this statement never returns (or has an unsound type.)
-File "interface.ml", line 75, characters 51-57:
-75 |     |Left ->print_endline "thank you for playing"; exit 0; ()
-                                                        ^^^^^^
-Warning 21: this statement never returns (or has an unsound type.)
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml # cached
 # Target: state.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:state.ml, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules state.ml > state.ml.depends # cached
 # Target: state.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:state.cmo, file:state.ml, implem, ocaml, quiet, traverse }
