@@ -12,6 +12,8 @@ let rec new_value grid =
 
 (*[display grid] prints a 4 by 4 grid with values of the current state *)
 let display grid =
+  failwith "unimplemented"
+let display grid =
   List.iter (fun line ->
       print_endline "----------------------------";
       print_string " |";

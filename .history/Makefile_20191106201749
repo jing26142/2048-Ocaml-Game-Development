@@ -20,4 +20,4 @@ play:
 	$(OCAMLBUILD) $(MAIN) && ./$(MAIN)
 
 zip:
-	zip 2048.zip *.ml* _tags *.txt* Makefile
+	zip 2048.zip *.ml* _tags Makefile

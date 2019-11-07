@@ -12,6 +12,8 @@ let rec new_value grid =
 
 (*[display grid] prints a 4 by 4 grid with values of the current state *)
 let display grid =
+  failwith "unimplemented"
+let display grid =
   List.iter (fun line ->
       print_endline "----------------------------";
       print_string " |";
@@ -34,9 +36,9 @@ let rec move_right box grid =
   let c = snd bpos in
   if (c = (grid_size grid) -1) then (grid)
   else (match (address r (c+1) grid) with
-      |None -> gen_box (vbox) r (c+1) grid |>
-               remove_box r c |> 
-               move_right (box_of_cell (address r (c+1) grid))
+      |None -> (print_endline (string_of_int r)); gen_box (vbox) r (c+1) grid |>
+                                                  remove_box r c |> 
+                                                  move_right (box_of_cell (address r (c+1) grid))
       |Some box2 -> if ((value box2) = value box) then
           let new_v = 2*value box in remove_box r c grid 
                                      |> remove_box r (c+1)
