@@ -23,4 +23,4 @@ val score : t -> int
 
 val new_state: Grid.t -> int -> t
 
-val update_score: t -> int -> unit
+val update_score: t -> int -> ()

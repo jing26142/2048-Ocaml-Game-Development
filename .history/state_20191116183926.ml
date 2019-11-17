@@ -23,8 +23,4 @@ let score st =
   st.score
 
 let new_state  new_grid score =
-  {current_grid = new_grid; score = score}
-
-
-let update_score st new_score =
-  st.score <- new_score
+  {current_grid = new_grid; score = 0}

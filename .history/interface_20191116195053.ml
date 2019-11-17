@@ -22,77 +22,70 @@ let display grid =
 
 
 
-let rec move_right state box grid =
+let rec move_right box grid =
   let vbox = value box in
   let bpos = pos box in
   let r = fst bpos in
   let c = snd bpos in
-  if (c = (grid_size grid) -1) then (grid, score state)
+  if (c = (grid_size grid) -1) then (grid)
   else (match (address r (c+1) grid) with
       |None -> gen_box (vbox) r (c+1) grid |>
                remove_box r c |> 
-               move_right state (box_of_cell (address r (c+1) grid))
+               move_right (box_of_cell (address r (c+1) grid))
       |Some box2 -> if ((value box2) = value box) then
           let new_v = 2*value box in 
-          update_score state ((score state) + new_v);
-          let grid1 = remove_box r c grid in
-          let grid2 = remove_box r (c+1) grid1 in
-          let grid3 =  gen_box new_v r (c+1) grid2 in
-          (grid3, score state)
-        else (grid, score state))
+          remove_box r c grid 
+          |> remove_box r (c+1)
+          |> gen_box new_v r (c+1)
+        else grid)
 
 
 
-let rec right_box state cell (grid, scr) =
+let rec right_box cell grid =
   match cell with
-  |None -> (grid, score state)
-  |Some box -> move_right state box grid
+  |None -> grid
+  |Some box -> move_right box grid
 
-let move_all_right state grid = 
-  let scr = score state in
-  right_box state (address 0 3 grid) (grid, scr) |> right_box state (address 0 2 grid)
-  |> right_box state (address 0 1 grid) |> right_box state (address 0 0 grid)
-  |> right_box state (address 1 3 grid) |> right_box state (address 1 2 grid)
-  |> right_box state (address 1 1 grid) |> right_box state (address 1 0 grid)
-  |> right_box state (address 2 3 grid) |> right_box state (address 2 2 grid)
-  |> right_box state (address 2 1 grid) |> right_box state (address 2 0 grid)
-  |> right_box state (address 3 3 grid) |> right_box state (address 3 2 grid)
-  |> right_box state (address 3 1 grid) |> right_box state (address 3 0 grid)
+let move_all_right grid = 
+  grid |> right_box (address 0 3 grid) |> right_box (address 0 2 grid)
+  |> right_box (address 0 1 grid) |> right_box (address 0 0 grid)
+  |> right_box (address 1 3 grid) |> right_box (address 1 2 grid)
+  |> right_box (address 1 1 grid) |> right_box (address 1 0 grid)
+  |> right_box (address 2 3 grid) |> right_box (address 2 2 grid)
+  |> right_box (address 2 1 grid) |> right_box (address 2 0 grid)
+  |> right_box (address 3 3 grid) |> right_box (address 3 2 grid)
+  |> right_box (address 3 1 grid) |> right_box (address 3 0 grid)
 
-let rec move_left state box grid =
+let rec move_left box grid =
   let vbox = value box in
   let bpos = pos box in
   let r = fst bpos in
   let c = snd bpos in
-  if (c = 0) then (grid, score state)
+  if (c = 0) then  grid
   else (match (address r (c-1) grid) with
       |None -> gen_box (vbox) r (c-1) grid |>
                remove_box r c |> 
-               move_left state (box_of_cell (address r (c-1) grid))
+               move_left (box_of_cell (address r (c-1) grid))
       |Some box2 -> if ((value box2) = value box) then
-          let new_v = 2*value box in 
-          update_score state ((score state) + new_v);
-          let grid1 = remove_box r c grid in
-          let grid2 = remove_box r (c-1) grid1 in
-          let grid3 = gen_box new_v r (c-1) grid2 in
-          (grid3, score state)
-        else (grid, score state))
+          let new_v = 2*value box in remove_box r c grid 
+                                     |> remove_box r (c-1)
+                                     |> gen_box new_v r (c-1)
+        else grid)
 
-let rec left_box state cell (grid, scr) =
+let rec left_box cell grid =
   match cell with
-  |None -> (grid, score state)
-  |Some box -> move_left state box grid
+  |None -> grid
+  |Some box -> move_left box grid
 
-let move_all_left state grid = 
-  let scr = score state in
-  left_box state (address 0 0 grid) (grid,scr) |> left_box state (address 0 1 grid)
-  |> left_box state (address 0 2 grid) |> left_box state (address 0 3 grid)
-  |> left_box state (address 1 0 grid) |> left_box state (address 1 1 grid)
-  |> left_box state (address 1 2 grid) |> left_box state (address 1 3 grid)
-  |> left_box state (address 2 0 grid) |> left_box state (address 2 1 grid)
-  |> left_box state (address 2 2 grid) |> left_box state (address 2 3 grid)
-  |> left_box state (address 3 0 grid) |> left_box state (address 3 1 grid)
-  |> left_box state (address 3 2 grid) |> left_box state (address 3 3 grid)
+let move_all_left grid = 
+  grid |> left_box (address 0 0 grid) |> left_box (address 0 1 grid)
+  |> left_box (address 0 2 grid) |> left_box (address 0 3 grid)
+  |> left_box (address 1 0 grid) |> left_box (address 1 1 grid)
+  |> left_box (address 1 2 grid) |> left_box (address 1 3 grid)
+  |> left_box (address 2 0 grid) |> left_box (address 2 1 grid)
+  |> left_box (address 2 2 grid) |> left_box (address 2 3 grid)
+  |> left_box (address 3 0 grid) |> left_box (address 3 1 grid)
+  |> left_box (address 3 2 grid) |> left_box (address 3 3 grid)
 
 let rec move_up state box grid =
   let vbox = value box in
@@ -170,15 +163,15 @@ let rec interface state =
   try
     match(parse next_move) with
     |Quit -> print_endline "thank you for playing"; exit 0
-    |Up -> let (g, scr) = move_all_up state (grid state) in
-      interface (new_state (random g) scr)
+    |Up -> interface (new_state 
+                        ((move_all_up (grid state))|> random)   0)
     |Down -> let (g, scr) = move_all_down state (grid state) in
       print_endline ("down score " ^ (string_of_int scr));
       interface (new_state (random g) scr)
-    |Left -> let (g, scr) = move_all_left state (grid state) in
-      interface(new_state (random g) scr)
-    |Right -> let (g, scr) = move_all_right state (grid state) in
-      interface (new_state (random g) scr)
+    |Left -> interface (new_state 
+                          ((move_all_left (grid state))|> random)   0)
+    |Right -> interface (new_state 
+                           ((move_all_right (grid state))|> random)   0)
   with
   | _ -> print_endline "You did something wrong, please try again" ; interface state
 

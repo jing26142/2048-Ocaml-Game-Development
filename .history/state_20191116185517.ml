@@ -23,7 +23,7 @@ let score st =
   st.score
 
 let new_state  new_grid score =
-  {current_grid = new_grid; score = score}
+  {current_grid = new_grid; score = 0}
 
 
 let update_score st new_score =

@@ -4,6 +4,8 @@ open Interface
 open State
 open Grid
 
+(*try*)
+
 let cell_val = function
   |None -> None
   |Some b -> Some (value b)

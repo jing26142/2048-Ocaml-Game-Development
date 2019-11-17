@@ -177,8 +177,8 @@ let rec interface state =
       interface (new_state (random g) scr)
     |Left -> let (g, scr) = move_all_left state (grid state) in
       interface(new_state (random g) scr)
-    |Right -> let (g, scr) = move_all_right state (grid state) in
-      interface (new_state (random g) scr)
+    |Right -> interface (new_state 
+                           ((move_all_right (grid state))|> random)   0)
   with
   | _ -> print_endline "You did something wrong, please try again" ; interface state
 
