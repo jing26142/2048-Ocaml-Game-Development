@@ -23,4 +23,14 @@ val score : t -> int
 
 val new_state: Grid.t -> int -> t
 
-val update_score: t -> int -> unit
+val update_score : t -> int -> unit
+
+(**[move_all_down state grid] creates a new tuple of (grid, score) with all boxes
+   moved down as commanded by the user*)
+val move_all_down:  t -> Grid.t -> Grid.t * int
+
+val move_all_up : t -> Grid.t -> Grid.t * int
+
+val move_all_left : t -> Grid.t -> Grid.t * int
+
+val move_all_right : t -> Grid.t -> Grid.t * int

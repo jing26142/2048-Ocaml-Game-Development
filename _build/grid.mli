@@ -45,3 +45,12 @@ val box_of_cell: box option -> box
 val to_matrix: t -> int list list
 
 val random: t -> t
+
+(** [win g] is true iff it has a cell containing the box with value 2048.
+*)
+val win : t -> bool
+
+(** [lose g] is true iff none of the cells are empty and no two adjacent
+    boxes have the same value. *)
+val lose : t -> bool
+
