@@ -30,10 +30,10 @@ File "interface.ml", line 16, characters 2-1007:
 Warning 8: this pattern-matching is not exhaustive.
 Here is an example of a case that is not matched:
 None
-File "interface.ml", line 230, characters 2-122:
-230 | ..match (parse diff_choice) with
-231 |   | Difficulty1 -> interfaced0(init_state ())
-232 |   | Difficulty2 -> interface(init_state ())
+File "interface.ml", line 238, characters 2-122:
+238 | ..match (parse diff_choice) with
+239 |   | Difficulty1 -> interfaced0(init_state ())
+240 |   | Difficulty2 -> interface(init_state ())
 Warning 8: this pattern-matching is not exhaustive.
 Here is an example of a case that is not matched:
 (Up|Down|Left|Right|Quit|GameMode1|GameMode2|Player2 (_, _))

@@ -174,9 +174,6 @@ let rec p2_phase state =
     print_endline "Player 2's turn";
   p2_turn state2
 
-
-
-
 and p2_turn state2 =
   try
     let next_move = read_line() in
@@ -187,12 +184,6 @@ and p2_turn state2 =
           print_endline "Entered Wrong Command. Player 2 Try again");
         p2_turn state2
       )
-    (*else
-      if (not (is_empty_box (value (box_of_cell(address r c (grid state2))))))
-      then (display (to_matrix (grid state2)); (
-        print_endline "Did not enter empty location");
-       p2_turn state2
-      )*)
       else
         let fgrid = gen_box 2 r c (grid state2) in
         if lose fgrid then

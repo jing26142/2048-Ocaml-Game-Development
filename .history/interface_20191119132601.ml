@@ -182,7 +182,7 @@ and p2_turn state2 =
     let next_move = read_line() in
     match (parse next_move)  with
     |Quit -> print_endline "thank you for playing the game"; exit 0
-    |Player2 (r, c) -> if (r>3 || r<0 || c>3 || c<0) then (
+    |Player2 (r, c) -> if (r>3 || r<=0 || c>3 || c<=0) then (
         display (to_matrix (grid state2)); (
           print_endline "Entered Wrong Command. Player 2 Try again");
         p2_turn state2

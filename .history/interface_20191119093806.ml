@@ -173,10 +173,6 @@ let rec p2_phase state =
   else
     print_endline "Player 2's turn";
   p2_turn state2
-
-
-
-
 and p2_turn state2 =
   try
     let next_move = read_line() in
@@ -187,14 +183,9 @@ and p2_turn state2 =
           print_endline "Entered Wrong Command. Player 2 Try again");
         p2_turn state2
       )
-    (*else
-      if (not (is_empty_box (value (box_of_cell(address r c (grid state2))))))
-      then (display (to_matrix (grid state2)); (
-        print_endline "Did not enter empty location");
-       p2_turn state2
-      )*)
       else
         let fgrid = gen_box 2 r c (grid state2) in
+        display (to_matrix fgrid);
         if lose fgrid then
           (print_endline "Congratulation Player 2. You Win!"; exit 0)
         else
@@ -230,7 +221,7 @@ let rec interfaced0 state =
 
 let rec interface2 state =
   display (to_matrix (grid state));
-  p2_phase state |> interface2 
+  p2_phase state
 
 let chose_diff () =
   ANSITerminal.(print_string [red] "type d0 for easy mode and d1 for hard mode\n");

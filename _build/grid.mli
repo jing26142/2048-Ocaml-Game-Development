@@ -42,6 +42,9 @@ val grid_size : t -> int
    Raise: Failure if not box *)
 val box_of_cell: box option -> box
 
+(**[is_empty_cell box] is true if box is empty *)
+val is_empty_box: int -> bool
+
 val to_matrix: t -> int list list
 
 val random: t -> t

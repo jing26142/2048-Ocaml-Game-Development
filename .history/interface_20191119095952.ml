@@ -187,22 +187,22 @@ and p2_turn state2 =
           print_endline "Entered Wrong Command. Player 2 Try again");
         p2_turn state2
       )
-    (*else
-      if (not (is_empty_box (value (box_of_cell(address r c (grid state2))))))
-      then (display (to_matrix (grid state2)); (
-        print_endline "Did not enter empty location");
-       p2_turn state2
-      )*)
       else
-        let fgrid = gen_box 2 r c (grid state2) in
-        if lose fgrid then
-          (print_endline "Congratulation Player 2. You Win!"; exit 0)
-        else
-          (new_state fgrid (score state2))
-    |_ -> display (to_matrix (grid state2)); (
-        print_endline "Entered Wrong Command. Player 2 Try again"); p2_turn state2
-  with
-  |_-> print_endline "You did something wrong, please try again" ; p2_turn state2
+        (*if (not (is_empty_box (value (box_of_cell(address r c (grid state2))))))
+          then (display (to_matrix (grid state2)); (
+            print_endline "Did not enter empty location");
+           p2_turn state2
+          )*)
+else
+  let fgrid = gen_box 2 r c (grid state2) in
+  if lose fgrid then
+    (print_endline "Congratulation Player 2. You Win!"; exit 0)
+  else
+    (new_state fgrid (score state2))
+|_ -> display (to_matrix (grid state2)); (
+    print_endline "Entered Wrong Command. Player 2 Try again"); p2_turn state2
+with
+|_-> print_endline "You did something wrong, please try again" ; p2_turn state2
 
 let rec interface state =
   display (to_matrix (grid state));

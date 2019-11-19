@@ -172,29 +172,37 @@ let rec p2_phase state =
   if win grid2 then (print_endline "Congratulation Player 1. You Win!"; exit 0)
   else
     print_endline "Player 2's turn";
+  p2_turn state2
+
+
+
+
+and p2_turn state2 =
   try
-    let rec p2_turn state =
-      let next_move = read_line() in
-      match (parse next_move)  with
-      |Quit -> print_endline "thank you for playing the game"; exit 0
-      |Player2 (r, c) -> if (r>3 || r<0 || c>3 || c<0) then (
-          display (to_matrix (grid state)); (
-            print_endline "Entered Wrong Command. Player 2 Try again");
-          p2_turn state
-        )
-        else
-          let fgrid = gen_box 2 r c (grid state2) in
-          display (to_matrix fgrid);
-          if lose fgrid then
-            (print_endline "Congratulation Player 2. You Win!"; exit 0)
-          else
-            (new_state fgrid (score state))
-      |_ -> display (to_matrix (grid state)); (
+    let next_move = read_line() in
+    match (parse next_move)  with
+    |Quit -> print_endline "thank you for playing the game"; exit 0
+    |Player2 (r, c) -> if (r>3 || r<0 || c>3 || c<0) then (
+        display (to_matrix (grid state2)); (
           print_endline "Entered Wrong Command. Player 2 Try again");
-        p2_turn state
-    in p2_turn state |> p2_phase
+        p2_turn state2
+      )
+    (*else
+      if (not (is_empty_box (value (box_of_cell(address r c (grid state2))))))
+      then (display (to_matrix (grid state2)); (
+        print_endline "Did not enter empty location");
+       p2_turn state2
+      )*)
+      else
+        let fgrid = gen_box 2 r c (grid state2) in
+        if lose fgrid then
+          (print_endline "Congratulation Player 2. You Win!"; exit 0)
+        else
+          (new_state fgrid (score state2))
+    |_ -> display (to_matrix (grid state2)); (
+        print_endline "Entered Wrong Command. Player 2 Try again"); p2_turn state2
   with
-  |_-> print_endline "You did something wrong, please try again" ; p2_phase state
+  |_-> print_endline "You did something wrong, please try again" ; p2_turn state2
 
 let rec interface state =
   display (to_matrix (grid state));
@@ -222,10 +230,10 @@ let rec interfaced0 state =
 
 let rec interface2 state =
   display (to_matrix (grid state));
-  p2_phase state
+  p2_phase state |> interface2 
 
 let chose_diff () =
-  print_endline "type d0 for easy mode and d1 for hard mode" ;
+  ANSITerminal.(print_string [red] "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line() in
   match (parse diff_choice) with
   | Difficulty1 -> interfaced0(init_state ())

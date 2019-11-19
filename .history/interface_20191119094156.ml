@@ -174,35 +174,26 @@ let rec p2_phase state =
     print_endline "Player 2's turn";
   p2_turn state2
 
-
-
-
 and p2_turn state2 =
   try
     let next_move = read_line() in
     match (parse next_move)  with
     |Quit -> print_endline "thank you for playing the game"; exit 0
     |Player2 (r, c) -> if (r>3 || r<0 || c>3 || c<0) then (
-        display (to_matrix (grid state2)); (
-          print_endline "Entered Wrong Command. Player 2 Try again");
-        p2_turn state2
-      )
-    (*else
-      if (not (is_empty_box (value (box_of_cell(address r c (grid state2))))))
-      then (display (to_matrix (grid state2)); (
-        print_endline "Did not enter empty location");
-       p2_turn state2
-      )*)
-      else
-        let fgrid = gen_box 2 r c (grid state2) in
-        if lose fgrid then
-          (print_endline "Congratulation Player 2. You Win!"; exit 0)
-        else
-          (new_state fgrid (score state2))
-    |_ -> display (to_matrix (grid state2)); (
-        print_endline "Entered Wrong Command. Player 2 Try again"); p2_turn state2
-  with
-  |_-> print_endline "You did something wrong, please try again" ; p2_turn state2
+        print_endline "Entered Wrong Command. Player 2 Try again");
+      p2_turn state2
+)
+else
+  let fgrid = gen_box 2 r c (grid state2) in
+  display (to_matrix fgrid);
+  if lose fgrid then
+    (print_endline "Congratulation Player 2. You Win!"; exit 0)
+  else
+    (new_state fgrid (score state2))
+|_ -> display (to_matrix (grid state2)); (
+    print_endline "Entered Wrong Command. Player 2 Try again"); p2_turn state2
+with
+|_-> print_endline "You did something wrong, please try again" ; p2_turn state2
 
 let rec interface state =
   display (to_matrix (grid state));

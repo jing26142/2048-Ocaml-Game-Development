@@ -20,9 +20,9 @@ let box_of_cell = function
   |Some box -> box
   |None -> raise Failure
 
-let is_empty_box = function
-  |0 -> true
-  |_ -> false
+let is_empty_cell = function
+  |Some box -> true
+  |None -> false
 
 (**a is row, b is col *)
 let gen_box (v:int) a b g =

@@ -20,7 +20,7 @@ let box_of_cell = function
   |Some box -> box
   |None -> raise Failure
 
-let is_empty_box = function
+let is_empty_cell = function
   |0 -> true
   |_ -> false
 
