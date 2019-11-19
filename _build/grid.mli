@@ -33,8 +33,8 @@ val value : box -> int
 
 val pos: box -> int*int
 
-(** [empty] is the empty grid. *)
-val empty : t
+(** [empty ()] is the empty grid. *)
+val empty : unit -> t
 
 val grid_size : t -> int
 
@@ -53,4 +53,7 @@ val win : t -> bool
 (** [lose g] is true iff none of the cells are empty and no two adjacent
     boxes have the same value. *)
 val lose : t -> bool
+
+
+
 

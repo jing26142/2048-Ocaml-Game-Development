@@ -1,24 +1,54 @@
 ### Starting build.
-# Target: test.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:ml, file:test.ml, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules test.ml > test.ml.depends
-# Target: grid.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:mli, file:grid.mli, ocaml, ocamldep, quiet, traverse }
+# Target: interface.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:interface.ml, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules interface.ml > interface.ml.depends
+# Target: command.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:mli, file:command.mli, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.mli > command.mli.depends # cached
+# Target: command.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:command.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o command.cmi command.mli # cached
+# Target: grid.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:mli, file:grid.mli, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules grid.mli > grid.mli.depends # cached
-# Target: grid.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:mli, file:grid.mli, interf, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o grid.cmi grid.mli # cached
-# Target: state.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:mli, file:state.mli, ocaml, ocamldep, quiet, traverse }
+# Target: grid.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:grid.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o grid.cmi grid.mli # cached
+# Target: state.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:mli, file:state.mli, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules state.mli > state.mli.depends # cached
-# Target: state.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:mli, file:state.mli, interf, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o state.cmi state.mli # cached
-# Target: test.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:cmo, extension:ml, file:test.cmo, file:test.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o test.cmo test.ml
-# Target: grid.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:ml, file:grid.ml, ocaml, ocamldep, quiet, traverse }
+# Target: state.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:state.mli, interf, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o state.cmi state.mli # cached
+# Target: interface.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:interface.cmo, file:interface.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
++ ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
+File "interface.ml", line 16, characters 2-1007:
+16 | ..let Some box1 = (address i j g) in
+17 |   let (di, dj) =
+18 |     match dir with
+19 |     | U -> (-1, 0)
+20 |     | D -> (1, 0)
+...
+53 |             | None -> []
+54 |           end
+55 |         else []
+56 |     end
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+None
+File "interface.ml", line 230, characters 2-122:
+230 | ..match (parse diff_choice) with
+231 |   | Difficulty1 -> interfaced0(init_state ())
+232 |   | Difficulty2 -> interface(init_state ())
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+(Up|Down|Left|Right|Quit|GameMode1|GameMode2|Player2 (_, _))
+# Target: command.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:command.ml, ocaml, ocamldep, quiet, traverse }
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.ml > command.ml.depends # cached
+# Target: command.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:command.cmo, file:command.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o command.cmo command.ml # cached
+# Target: grid.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:grid.ml, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules grid.ml > grid.ml.depends # cached
-# Target: grid.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:cmo, extension:ml, file:grid.cmo, file:grid.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o grid.cmo grid.ml # cached
-# Target: state.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), debug, extension:ml, file:state.ml, ocaml, ocamldep, quiet, traverse }
+# Target: grid.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:grid.cmo, file:grid.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o grid.cmo grid.ml # cached
+# Target: state.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:state.ml, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules state.ml > state.ml.depends # cached
-# Target: state.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, debug, extension:cmo, extension:ml, file:state.cmo, file:state.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -g -package oUnit -package yojson -package ANSITerminal -o state.cmo state.ml # cached
-# Target: test.byte, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, debug, dont_link_with, extension:byte, file:test.byte, link, ocaml, program, quiet, traverse }
-ocamlfind ocamlc -linkpkg -g -package oUnit -package yojson -package ANSITerminal grid.cmo state.cmo test.cmo -o test.byte
+# Target: state.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:state.cmo, file:state.ml, implem, ocaml, quiet, traverse }
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o state.cmo state.ml # cached
+# Target: interface.byte, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, dont_link_with, extension:byte, file:interface.byte, link, ocaml, program, quiet, traverse }
+ocamlfind ocamlc -linkpkg -package oUnit -package yojson -package ANSITerminal command.cmo grid.cmo state.cmo interface.cmo -o interface.byte
 # Compilation successful.

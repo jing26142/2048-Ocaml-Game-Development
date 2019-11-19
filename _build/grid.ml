@@ -20,7 +20,7 @@ let box_of_cell = function
   |Some box -> box
   |None -> raise Failure
 
-(**a is row, b is col *) 
+(**a is row, b is col *)
 let gen_box (v:int) a b g =
   (help_add a 0 g).(b) <- Some {v = v; pos = (a,b)}; g
 
@@ -35,7 +35,7 @@ let content_box = function
 
 let pos box = box.pos
 
-let empty =
+let empty () =
   [Array.make 4 None; Array.make 4 None; Array.make 4 None; Array.make 4 None]
 
 let grid_size g =
@@ -67,12 +67,12 @@ let l_hori_hlpr row =
   let acc = ref false in
   let _ = for i = 0 to 2
     do
-      acc := !acc || (row.(i) = row.(i + 1))
+      acc := !acc || content_box row.(i) = content_box row.(i + 1)
     done in
   !acc
 
 let rec l_vert_hlpr i = function
-  | h1 :: (h2 :: t) -> h1.(i) = h2.(i) || l_vert_hlpr i (h2 :: t)
+  | h1 :: (h2 :: t) -> content_box h1.(i) = content_box h2.(i) || l_vert_hlpr i (h2 :: t)
   | h1 :: [] -> false
   | [] -> failwith "bad input"
 
@@ -89,6 +89,9 @@ let lose g =
   if List.fold_left (fun acc row -> acc || l_hori_hlpr row) false g then
     false
   else not (l_vert g)
+
+
+
 
 
 

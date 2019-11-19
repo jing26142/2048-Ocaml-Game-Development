@@ -1,20 +1,20 @@
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:0:non-empty sets contains 1 is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:2:check win condition - false.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:2:check win condition - false is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:2:check win condition - false.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:3:check win condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:15:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:15:check lose condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:15:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:15:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:0:non-empty sets contains 1 is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:2:check win condition - false.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:2:check win condition - false is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:2:check win condition - false.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:3:check win condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:15:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:15:check lose condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:15:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:15:check lose condition - true.

@@ -1,198 +1,197 @@
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Runner: processes
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Chooser: simple
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration suite_name = "search test suite"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration cache_filename = "/mnt/c/Users/Jing/Documents/3110/project/2048-Project/_build/oUnit-$(suite_name).cache"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration display = "true"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration results_style_1_X = "false"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration verbose = "false"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration health_check_interval = "1."
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration testdata_dir = "none"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration chooser = "simple"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration output_html_dir = "none"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration processes_kill_period = "5."
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration runner = "processes"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration shards = "2"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration processes_grace_period = "5."
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration log_encoding = "utf-8"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration output_junit_file = "none"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Configuration output_file = "/mnt/c/Users/Jing/Documents/3110/project/2048-Project/_build/oUnit-$(suite_name)-$(shard_id).log"
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Using 2 workers maximum.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Starting worker number DESKTOP-BUMVERI#01.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#01 started.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Starting worker number DESKTOP-BUMVERI#02.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#02 started.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:0:non-empty sets contains 1 is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:2:check win condition - false.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:2:check win condition - false is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:2:check win condition - false.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:1:size of grid is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:4:check lose condition - false.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:4:check lose condition - false is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:4:check lose condition - false.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:5:check lose condition - empty cell in center.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:5:check lose condition - empty cell in center is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:5:check lose condition - empty cell in center.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:6:check lose condition - empty cell in rightmost column.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:6:check lose condition - empty cell in rightmost column is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:6:check lose condition - empty cell in rightmost column.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:7:check lose condition - empty cell in bottom row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:7:check lose condition - empty cell in bottom row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:7:check lose condition - empty cell in bottom row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:8:check lose condition - horizontal duplicate in middle.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:8:check lose condition - horizontal duplicate in middle is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:8:check lose condition - horizontal duplicate in middle.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:9:check lose condition - vertical duplicate in middle.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:9:check lose condition - vertical duplicate in middle is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:9:check lose condition - vertical duplicate in middle.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:10:check lose condition - horizontal duplicate in rightmost column.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:10:check lose condition - horizontal duplicate in rightmost column is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:10:check lose condition - horizontal duplicate in rightmost column.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:11:check lose condition - horizontal duplicate in bottommost row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:11:check lose condition - horizontal duplicate in bottommost row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:11:check lose condition - horizontal duplicate in bottommost row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:12:check lose condition - vertical duplicate in bottommost row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:12:check lose condition - vertical duplicate in bottommost row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:12:check lose condition - vertical duplicate in bottommost row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:13:check lose condition - vertical duplicate in rightmost row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:13:check lose condition - vertical duplicate in rightmost row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:13:check lose condition - vertical duplicate in rightmost row.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:3:check win condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:15:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:15:check lose condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:15:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:15:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Still 1 tests running : search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 1 tests running: search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 E: Test search test suite:14:check lose condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 E: not equal in test search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Still 1 tests running : search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 1 tests running: search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Still 1 tests running : search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 1 tests running: search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: 0 tests running: .
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#01 has ended.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#02 has ended.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Used 2 worker during test execution.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Run 4 tests with shard DESKTOP-BUMVERI#01.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Run 12 tests with shard DESKTOP-BUMVERI#02.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: ==============
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Summary:
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Test search test suite:14:check lose condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: not equal in test search test suite:14:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Test search test suite:15:check lose condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: not equal in test search test suite:15:check lose condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Test search test suite:3:check win condition - true has failed.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: not equal in test search test suite:3:check win condition - true.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 E: 
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:13:check lose condition - vertical duplicate in rightmost row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:12:check lose condition - vertical duplicate in bottommost row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:11:check lose condition - horizontal duplicate in bottommost row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:10:check lose condition - horizontal duplicate in rightmost column is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:9:check lose condition - vertical duplicate in middle is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:8:check lose condition - horizontal duplicate in middle is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:7:check lose condition - empty cell in bottom row is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:6:check lose condition - empty cell in rightmost column is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:5:check lose condition - empty cell in center is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:4:check lose condition - false is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:1:size of grid is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:2:check win condition - false is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:0:non-empty sets contains 1 is successful.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Ran: 16 tests in: 0.33 seconds.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Cases: 16.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Tried: 16.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Errors: 0.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Failures: 3.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Skip: 0.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Todo: 0.
-2019-11-18T21:46:36+00:00 DESKTOP-BUMVERI#00 I: Timeout: 0.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Runner: processes
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Chooser: simple
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration suite_name = "search test suite"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration cache_filename = "/mnt/c/Users/Jing/Documents/3110/project/2048-Project/_build/oUnit-$(suite_name).cache"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration display = "true"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration results_style_1_X = "false"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration verbose = "false"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration health_check_interval = "1."
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration testdata_dir = "none"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration chooser = "simple"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration output_html_dir = "none"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration processes_kill_period = "5."
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration runner = "processes"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration shards = "2"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration processes_grace_period = "5."
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration log_encoding = "utf-8"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration output_junit_file = "none"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Configuration output_file = "/mnt/c/Users/Jing/Documents/3110/project/2048-Project/_build/oUnit-$(suite_name)-$(shard_id).log"
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Using 2 workers maximum.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Starting worker number DESKTOP-BUMVERI#01.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#01 started.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Starting worker number DESKTOP-BUMVERI#02.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#02 started.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:0:non-empty sets contains 1 is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:1:size of grid, search test suite:0:non-empty sets contains 1.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:2:check win condition - false.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Test search test suite:2:check win condition - false is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:2:check win condition - false.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:2:check win condition - false, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:1:size of grid is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:3:check win condition - true, search test suite:1:size of grid.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:4:check lose condition - false.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:4:check lose condition - false is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:4:check lose condition - false.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:4:check lose condition - false, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:5:check lose condition - empty cell in center.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:5:check lose condition - empty cell in center is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:5:check lose condition - empty cell in center.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:5:check lose condition - empty cell in center, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:6:check lose condition - empty cell in rightmost column.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:6:check lose condition - empty cell in rightmost column is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:6:check lose condition - empty cell in rightmost column.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:6:check lose condition - empty cell in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:7:check lose condition - empty cell in bottom row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:7:check lose condition - empty cell in bottom row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:7:check lose condition - empty cell in bottom row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:7:check lose condition - empty cell in bottom row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:8:check lose condition - horizontal duplicate in middle.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:8:check lose condition - horizontal duplicate in middle is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:8:check lose condition - horizontal duplicate in middle.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:8:check lose condition - horizontal duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:9:check lose condition - vertical duplicate in middle.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:9:check lose condition - vertical duplicate in middle is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:9:check lose condition - vertical duplicate in middle.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:9:check lose condition - vertical duplicate in middle, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:10:check lose condition - horizontal duplicate in rightmost column.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:10:check lose condition - horizontal duplicate in rightmost column is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:10:check lose condition - horizontal duplicate in rightmost column.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:10:check lose condition - horizontal duplicate in rightmost column, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:11:check lose condition - horizontal duplicate in bottommost row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:11:check lose condition - horizontal duplicate in bottommost row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:11:check lose condition - horizontal duplicate in bottommost row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:11:check lose condition - horizontal duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:12:check lose condition - vertical duplicate in bottommost row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:12:check lose condition - vertical duplicate in bottommost row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:12:check lose condition - vertical duplicate in bottommost row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:12:check lose condition - vertical duplicate in bottommost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:13:check lose condition - vertical duplicate in rightmost row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Test search test suite:13:check lose condition - vertical duplicate in rightmost row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:13:check lose condition - vertical duplicate in rightmost row.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:13:check lose condition - vertical duplicate in rightmost row, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: Start test search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:3:check win condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:14:check lose condition - true, search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: Start test search test suite:15:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Test search test suite:15:check lose condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: not equal in test search test suite:15:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#01 I: End test search test suite:15:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Still 2 tests running : search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 2 tests running: search test suite:15:check lose condition - true, search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Still 1 tests running : search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 1 tests running: search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 E: Test search test suite:14:check lose condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 E: not equal in test search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Still 1 tests running : search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 1 tests running: search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#02 I: End test search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Still 1 tests running : search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 1 tests running: search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: 0 tests running: .
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#01 has ended.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Worker DESKTOP-BUMVERI#02 has ended.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Used 2 worker during test execution.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Run 4 tests with shard DESKTOP-BUMVERI#01.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Run 12 tests with shard DESKTOP-BUMVERI#02.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: ==============
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Summary:
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Test search test suite:14:check lose condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: not equal in test search test suite:14:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Test search test suite:15:check lose condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: not equal in test search test suite:15:check lose condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Test search test suite:3:check win condition - true has failed.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: not equal in test search test suite:3:check win condition - true.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 E: 
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:13:check lose condition - vertical duplicate in rightmost row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:12:check lose condition - vertical duplicate in bottommost row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:11:check lose condition - horizontal duplicate in bottommost row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:10:check lose condition - horizontal duplicate in rightmost column is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:9:check lose condition - vertical duplicate in middle is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:8:check lose condition - horizontal duplicate in middle is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:7:check lose condition - empty cell in bottom row is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:6:check lose condition - empty cell in rightmost column is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:5:check lose condition - empty cell in center is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:4:check lose condition - false is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:1:size of grid is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:2:check win condition - false is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Test search test suite:0:non-empty sets contains 1 is successful.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Ran: 16 tests in: 0.17 seconds.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Cases: 16.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Tried: 16.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Errors: 0.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Failures: 3.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Skip: 0.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Todo: 0.
+2019-11-18T23:32:04+00:00 DESKTOP-BUMVERI#00 I: Timeout: 0.

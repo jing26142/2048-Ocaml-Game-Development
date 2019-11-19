@@ -10,7 +10,7 @@ let init_state () =
   let r21 = Random.int 4 in
   let r22 = Random.int 4 in
   let r21 = if (r21 = r11 && r22 = r22) then (r11+1) mod 4 else r21 in
-  let grid = empty in {
+  let grid = empty() in {
     current_grid = gen_box 2 r11 r12 grid |> gen_box 2 r21 r22;
     score = 0
   }
@@ -35,21 +35,19 @@ let rec move_down state box grid =
   let bpos = pos box in
   let r = fst bpos in
   let c = snd bpos in
-  if ( r = (grid_size grid) -1) then ((print_endline "move_down base"); (grid, score state))
+  if ( r = (grid_size grid) -1) then  (grid, score state)
   else match (address (r+1) c grid) with
-    |None -> (print_endline "match none");gen_box (vbox) (r+1) c grid |>
-                                          remove_box r c |> 
-                                          move_down state (box_of_cell (address (r+1) c grid))
+    |None -> gen_box (vbox) (r+1) c grid |>
+             remove_box r c |> 
+             move_down state (box_of_cell (address (r+1) c grid))
     |Some box2 -> if ((value box2) = value box) then
         let new_v = 2*value box in
         update_score state ((score state) + new_v);
-        print_endline ("new_score " ^ (string_of_int (score state)));
         let b1 = remove_box r c grid in
         let b2 = remove_box (r+1) c b1 in
         let b3 = gen_box new_v (r+1) c b2 in
-        (print_endline "match some if true");
         (b3, score state) 
-      else ((print_endline "match some if false");(grid, score state))
+      else (grid, score state)
 
 let rec down_box state cell (grid, scr) = 
   match cell with 
