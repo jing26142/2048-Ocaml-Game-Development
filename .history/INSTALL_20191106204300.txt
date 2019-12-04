@@ -1,0 +1,14 @@
+How To Play:
+2048 Game:
+w: swipe up
+s: swipe down
+d: swipe right
+a: swipe left
+
+Blocks should move corresponding to the user's command.
+If two blocks collide: merge and combine in value if same value, else adjacent to each other.
+
+
+To start game:
+1) Type "make build" into the terminal.
+2) Type "make play" into the terminal.

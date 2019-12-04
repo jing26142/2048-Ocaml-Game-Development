@@ -1,0 +1,5 @@
+(executable
+  (name interface)
+  (libraries state grid command)
+  (js_of_ocaml)
+(preprocess (pps ppx_jane js_of_ocaml-ppx))

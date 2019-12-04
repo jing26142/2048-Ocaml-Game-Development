@@ -2,6 +2,7 @@ open State
 open Grid
 open Command
 
+
 (** FUNCTIONS FOR CPU-CONTROLLED PLAYER *)
 
 (** [cpu_d0 st] is a copy of [st] with a box generated corresponding to
@@ -122,10 +123,6 @@ let cpu_d1 st =
 
 (*----------------------------------------------------------------------------*)
 
-open State
-open Grid
-open Command
-
 (*[new_value grid] adds either a 2 or 4 to a random cell containing a zero *)
 let rec new_value grid =
   failwith "unimplemented"
@@ -144,12 +141,30 @@ let display grid =
 
     ) grid
 
+let rec string_row row =
+  string_of_int(content_box row.(0))^ "|" ^string_of_int(content_box row.(1))^"|"^
+  string_of_int(content_box row.(2))^ "|" ^string_of_int(content_box row.(3))^"|"
+
+
+let string_rep grid =
+  "----------------------------"^
+  "\n|" ^ string_row (row 0 grid) ^
+  "\n|" ^ string_row (row 1 grid) ^
+  "\n|" ^ string_row (row 2 grid) ^
+  "\n|" ^ string_row (row 3 grid)
+
+let output log =
+  let txtfile = open_out "./gamelog.txt" in
+  output_string txtfile log;
+  close_out txtfile;;
+
 let rec p1_phase state =
   let next_move = read_line() in
   try
     let next_state  =
       match(parse next_move) with
-      |Quit -> print_endline "thank you for playing"; exit 0
+      |Quit -> print_endline "thank you for playing"; output (string_rep (grid state));
+        exit 0
       |Up -> let (g, scr) = move_all_up state (grid state) in
         (new_state g scr)
       |Down -> let (g, scr) = move_all_down state (grid state) in
@@ -167,7 +182,8 @@ let rec p1_phase state =
 let rec p2_phase state =
   print_endline "Player 1's Turn";
   let state2 = p1_phase state in
-  display (to_matrix (grid state2));
+  (* display (to_matrix (grid state2)); *)
+  print_endline (string_rep (grid state2));
   let grid2 = grid state2 in
   if win grid2 then (print_endline "Congratulation Player 1. You Win!"; exit 0)
   else
@@ -187,12 +203,12 @@ and p2_turn state2 =
           print_endline "Entered Wrong Command. Player 2 Try again");
         p2_turn state2
       )
-    (*else
-      if (not (is_empty_box (value (box_of_cell(address r c (grid state2))))))
+      else
+      if (not (is_empty_box (content_box (address r c (grid state2)))))
       then (display (to_matrix (grid state2)); (
-        print_endline "Did not enter empty location");
-       p2_turn state2
-      )*)
+          print_endline "The entered location is not empty.Please try again.");
+         p2_turn state2
+        )
       else
         let fgrid = gen_box 2 r c (grid state2) in
         if lose fgrid then
@@ -232,17 +248,19 @@ let rec interface2 state =
   display (to_matrix (grid state));
   p2_phase state |> interface2 
 
-let chose_diff () =
+let rec chose_diff () =
   ANSITerminal.(print_string [red] "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line() in
   match (parse diff_choice) with
   | Difficulty1 -> interfaced0(init_state ())
   | Difficulty2 -> interface(init_state ())
+  | _ -> print_endline "invalid difficulty level, try again"; chose_diff ()
 
 
 let main () =
   ANSITerminal.(print_string [red]
-                  "\n\nWelcome to the 2048 game. type single for 1 player or type multi for 2 player game mode\n");
+                  "\n\nWelcome to the 2048 game. type single for 1 player or 
+                  type multi for 2 player game mode\n");
   let game_choice = read_line() in
   match(parse game_choice) with
   | GameMode1 ->  chose_diff ()

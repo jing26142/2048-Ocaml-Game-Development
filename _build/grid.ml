@@ -12,6 +12,11 @@ let rec help_add i count g =
   | h :: t -> if (i = count) then h else help_add i (count+1) t
   | _ -> raise Failure
 
+let row a g =
+  help_add a 0 g
+
+
+
 (**[address a b c] returns the cell of location ([a],[b]) in grid [c]*)
 let address a b g =
   (help_add a 0 g).(b)

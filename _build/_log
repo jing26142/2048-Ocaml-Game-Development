@@ -1,6 +1,6 @@
 ### Starting build.
 # Target: interface.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:interface.ml, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules interface.ml > interface.ml.depends
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules interface.ml > interface.ml.depends # cached
 # Target: command.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:mli, file:command.mli, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.mli > command.mli.depends # cached
 # Target: command.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:command.mli, interf, ocaml, quiet, traverse }
@@ -14,29 +14,7 @@ ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules
 # Target: state.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:state.mli, interf, ocaml, quiet, traverse }
 ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o state.cmi state.mli # cached
 # Target: interface.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:interface.cmo, file:interface.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
-+ ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
-File "interface.ml", line 16, characters 2-1007:
-16 | ..let Some box1 = (address i j g) in
-17 |   let (di, dj) =
-18 |     match dir with
-19 |     | U -> (-1, 0)
-20 |     | D -> (1, 0)
-...
-53 |             | None -> []
-54 |           end
-55 |         else []
-56 |     end
-Warning 8: this pattern-matching is not exhaustive.
-Here is an example of a case that is not matched:
-None
-File "interface.ml", line 238, characters 2-122:
-238 | ..match (parse diff_choice) with
-239 |   | Difficulty1 -> interfaced0(init_state ())
-240 |   | Difficulty2 -> interface(init_state ())
-Warning 8: this pattern-matching is not exhaustive.
-Here is an example of a case that is not matched:
-(Up|Down|Left|Right|Quit|GameMode1|GameMode2|Player2 (_, _))
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml # cached
 # Target: command.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:command.ml, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.ml > command.ml.depends # cached
 # Target: command.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:command.cmo, file:command.ml, implem, ocaml, quiet, traverse }
@@ -50,5 +28,5 @@ ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules
 # Target: state.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:state.cmo, file:state.ml, implem, ocaml, quiet, traverse }
 ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o state.cmo state.ml # cached
 # Target: interface.byte, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, dont_link_with, extension:byte, file:interface.byte, link, ocaml, program, quiet, traverse }
-ocamlfind ocamlc -linkpkg -package oUnit -package yojson -package ANSITerminal command.cmo grid.cmo state.cmo interface.cmo -o interface.byte
+ocamlfind ocamlc -linkpkg -package oUnit -package yojson -package ANSITerminal command.cmo grid.cmo state.cmo interface.cmo -o interface.byte # cached
 # Compilation successful.
