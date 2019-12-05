@@ -5,8 +5,6 @@ type t = {
   gamelog : string
 }
 
-type dir = U|D|L|R
-
 let rec string_row row =
   string_of_int(content_box row.(0))^ "|" ^string_of_int(content_box row.(1))^"|"^
   string_of_int(content_box row.(2))^ "|" ^string_of_int(content_box row.(3))^"|"

@@ -34,13 +34,11 @@ val remove_box: int -> int -> t -> t
 (** [value bx] is the value associated with [bx] *)
 val value : box -> int
 
-(**[pos b] is the tuple location of box [b] in the grid *)
 val pos: box -> int*int
 
 (** [empty ()] is the empty grid. *)
 val empty : unit -> t
 
-(**[grid_size t] is the length of the row of grid [t] *)
 val grid_size : t -> int
 
 (**[box_of_cell (Some box)] is [box].
@@ -50,11 +48,8 @@ val box_of_cell: box option -> box
 (**[is_empty_cell box] is true if box is empty *)
 val is_empty_box: int -> bool
 
-(**[to_matrix t] is the int list list representation of grid t *)
 val to_matrix: t -> int list list
 
-(**[random t] is a new grid a 2 placed in any empty cell. If the grid is full,
-   then return the same grid *)
 val random: t -> t
 
 (** [win g] is true iff it has a cell containing the box with value 2048.
@@ -65,7 +60,6 @@ val win : t -> bool
     boxes have the same value. *)
 val lose : t -> bool
 
-(**[content_box a b] is the content of [a] if [a] is Some int and is 0 otherwise *)
 val content_box : box option -> int
 
 (** [copy g] is a copy of [g] such that any changes made to [copy g] will leave

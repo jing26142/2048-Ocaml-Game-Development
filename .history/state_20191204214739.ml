@@ -5,8 +5,6 @@ type t = {
   gamelog : string
 }
 
-type dir = U|D|L|R
-
 let rec string_row row =
   string_of_int(content_box row.(0))^ "|" ^string_of_int(content_box row.(1))^"|"^
   string_of_int(content_box row.(2))^ "|" ^string_of_int(content_box row.(3))^"|"
@@ -81,7 +79,7 @@ let rec move_box st dir = function
           let new_grid = grid |> remove_box r c |> remove_box (r + dr) (c + dc)
                          |> gen_box new_v (r + dr) (c + dc)
           in 
-          new_state new_grid (score st) (gamelog st)
+          new_state new_grid (score st)
         else
           st 
 
@@ -117,7 +115,6 @@ let fold_dir dir =
 
 let move_all st dir =
   (fold_dir dir) (move_box st dir) st 
-
 let copy st = {
   current_grid = Grid.copy st.current_grid;
   score = st.score;

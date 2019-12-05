@@ -2,8 +2,6 @@ open State
 open Grid
 open Command
 
-type dir = State.dir
-
 (*[display grid] prints a 4 by 4 grid with values of the current state *)
 let display grid =
   List.iter (fun line ->
@@ -36,6 +34,7 @@ let cpu_d0 st =
   let g = (st|>grid|>random) in
   new_state g (score st) ((gamelog st) ^ "\n\nCPU's move: " ^ (string_rep g))
 
+type dir = U | D | L | R
 
 let best_tile_d1_dir g i j dir =
   let Some box1 = (address i j g) in
@@ -209,17 +208,14 @@ let rec p1_phase state =
   try
     let next_state  =
       match(parse next_move) with
-      |Quit -> print_endline "thank you for playing"; 
-        output ((gamelog state)^ "\n" ^ (string_rep (grid state))); exit 0
+      | Quit -> print_endline "thank you for playing"; output (string_rep (grid state)); exit 0
       | Up -> move_all state U
       | Down -> move_all state D
       | Left -> move_all state L
       | Right -> move_all state R
       |_ -> print_endline "invalid player command"; p1_phase state
     in
-    let g = grid next_state in
-    let scr = score next_state in
-    (new_state g scr ((gamelog state)^ "\nP1's move:" ^ (string_rep (grid state))))
+    next_state
   with
   | _ -> print_endline "You did something wrong, please try again" ; p1_phase state
 

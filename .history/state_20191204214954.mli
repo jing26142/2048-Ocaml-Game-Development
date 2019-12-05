@@ -11,9 +11,6 @@
 (** The abstract type of values representing the game state. *)
 type t
 
-(**The type of values representing direction *)
-type dir = U|D|L|R
-
 val string_row : Grid.box option array -> string
 
 val string_rep : Grid.t -> string
@@ -36,7 +33,7 @@ val update_score : t -> int -> unit
 
 (**[move_all_down state grid] creates a new tuple of (grid, score) with all boxes
    moved down as commanded by the user*)
-val move_all : t -> dir -> t
+val nove_all : t -> dir -> t
 
 (** [copy st] is a copy of [st] such that any changes made to [copy g] will 
     leave [st] unaffected and vice versa. *) 

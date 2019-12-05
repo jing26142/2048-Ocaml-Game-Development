@@ -5,6 +5,8 @@ type t = {
   gamelog : string
 }
 
+type dir = U|D|L|R
+
 let rec string_row row =
   string_of_int(content_box row.(0))^ "|" ^string_of_int(content_box row.(1))^"|"^
   string_of_int(content_box row.(2))^ "|" ^string_of_int(content_box row.(3))^"|"
@@ -48,148 +50,73 @@ let update_score st new_score =
   st.score <- new_score
 
 
-let rec move_down state box grid =
-  let vbox = value box in
-  let bpos = pos box in
-  let r = fst bpos in
-  let c = snd bpos in
-  if ( r = (grid_size grid) -1) then  (grid, score state)
-  else match (address (r+1) c grid) with
-    |None -> gen_box (vbox) (r+1) c grid |>
-             remove_box r c |> 
-             move_down state (box_of_cell (address (r+1) c grid))
-    |Some box2 -> if ((value box2) = value box) then
-        let new_v = 2*value box in
-        update_score state ((score state) + new_v);
-        let b1 = remove_box r c grid in
-        let b2 = remove_box (r+1) c b1 in
-        let b3 = gen_box new_v (r+1) c b2 in
-        (b3, score state) 
-      else (grid, score state)
+let rec move_box st dir = function
+  | None -> st
+  | Some box ->
+    let vbox = value box in 
+    let (r, c) = pos box in 
+    let edge_cond = 
+      match dir with 
+      | U -> r = 0 
+      | D -> r = 3
+      | L -> c = 0
+      | R -> c = 3
+    in
+    if edge_cond then st else
+      let grid = grid st in
+      let (dr, dc) = 
+        match dir with
+        | U -> (-1, 0)
+        | D -> (1, 0)
+        | L -> (0, -1)
+        | R -> (0, 1)
+      in 
+      match address (r + dr) (c + dc) grid with 
+      | None -> grid |> gen_box vbox (r + dr) (c + dc) |> remove_box r c 
+                |> address (r + dr) (c + dc) |> move_box st dir 
+      | Some box2 -> 
+        if value box2 = value box then 
+          let new_v = 2 * (value box) in
+          update_score st ((score st) + new_v);
+          let new_grid = grid |> remove_box r c |> remove_box (r + dr) (c + dc)
+                         |> gen_box new_v (r + dr) (c + dc)
+          in 
+          new_state new_grid (score st) (gamelog st)
+        else
+          st 
 
-let rec down_box state cell (grid, scr) = 
-  match cell with 
-  |None -> (grid, score state)
-  |Some box -> move_down state box grid 
+let fold_dir dir =
+  fun f st ->
+  let acc = ref st in 
+  (match dir with 
+   | U -> 
+     for i = 0 to 3 do 
+       for j = 0 to 3 do 
+         acc := !acc |> grid |> address i j |> f
+       done
+     done
+   | D -> 
+     for i = 3 downto 0 do 
+       for j = 0 to 3 do 
+         acc := !acc |> grid |> address i j |> f
+       done
+     done
+   | L ->
+     for j = 0 to 3 do 
+       for i = 0 to 3 do 
+         acc := !acc |> grid |> address i j |> f
+       done
+     done
+   | R -> 
+     for j = 3 downto 0 do 
+       for i = 0 to 3 do 
+         acc := !acc |> grid |> address i j |> f
+       done
+     done);
+  !acc
 
-let move_all_down state grid =
-  let scr = score state in
-  down_box state (address 3 0 grid) (grid, scr) |> down_box state (address 2 0 grid)
-  |> down_box state (address 1 0 grid) |> down_box state (address 0 0 grid) 
-  |> down_box state (address 3 1 grid) |> down_box state (address 2 1 grid)
-  |> down_box state (address 1 1 grid) |> down_box state (address 0 1 grid) 
-  |> down_box state (address 3 2 grid) |> down_box state (address 2 2 grid) 
-  |> down_box state (address 1 2 grid) |> down_box state (address 0 2 grid)
-  |> down_box state (address 3 3 grid) |> down_box state (address 2 3 grid)
-  |> down_box state (address 1 3 grid) |> down_box state (address 0 3 grid)
-
-
-
-let rec move_right state box grid =
-  let vbox = value box in
-  let bpos = pos box in
-  let r = fst bpos in
-  let c = snd bpos in
-  if (c = (grid_size grid) -1) then (grid, score state)
-  else (match (address r (c+1) grid) with
-      |None -> gen_box (vbox) r (c+1) grid |>
-               remove_box r c |> 
-               move_right state (box_of_cell (address r (c+1) grid))
-      |Some box2 -> if ((value box2) = value box) then
-          let new_v = 2*value box in 
-          update_score state ((score state) + new_v);
-          let grid1 = remove_box r c grid in
-          let grid2 = remove_box r (c+1) grid1 in
-          let grid3 =  gen_box new_v r (c+1) grid2 in
-          (grid3, score state)
-        else (grid, score state))
-
-
-
-let rec right_box state cell (grid, scr) =
-  match cell with
-  |None -> (grid, score state)
-  |Some box -> move_right state box grid
-
-let move_all_right state grid = 
-  let scr = score state in
-  right_box state (address 0 3 grid) (grid, scr) |> right_box state (address 0 2 grid)
-  |> right_box state (address 0 1 grid) |> right_box state (address 0 0 grid)
-  |> right_box state (address 1 3 grid) |> right_box state (address 1 2 grid)
-  |> right_box state (address 1 1 grid) |> right_box state (address 1 0 grid)
-  |> right_box state (address 2 3 grid) |> right_box state (address 2 2 grid)
-  |> right_box state (address 2 1 grid) |> right_box state (address 2 0 grid)
-  |> right_box state (address 3 3 grid) |> right_box state (address 3 2 grid)
-  |> right_box state (address 3 1 grid) |> right_box state (address 3 0 grid)
-
-let rec move_left state box grid =
-  let vbox = value box in
-  let bpos = pos box in
-  let r = fst bpos in
-  let c = snd bpos in
-  if (c = 0) then (grid, score state)
-  else (match (address r (c-1) grid) with
-      |None -> gen_box (vbox) r (c-1) grid |>
-               remove_box r c |> 
-               move_left state (box_of_cell (address r (c-1) grid))
-      |Some box2 -> if ((value box2) = value box) then
-          let new_v = 2*value box in 
-          update_score state ((score state) + new_v);
-          let grid1 = remove_box r c grid in
-          let grid2 = remove_box r (c-1) grid1 in
-          let grid3 = gen_box new_v r (c-1) grid2 in
-          (grid3, score state)
-        else (grid, score state))
-
-let rec left_box state cell (grid, scr) =
-  match cell with
-  |None -> (grid, score state)
-  |Some box -> move_left state box grid
-
-let move_all_left state grid = 
-  let scr = score state in
-  left_box state (address 0 0 grid) (grid,scr) |> left_box state (address 0 1 grid)
-  |> left_box state (address 0 2 grid) |> left_box state (address 0 3 grid)
-  |> left_box state (address 1 0 grid) |> left_box state (address 1 1 grid)
-  |> left_box state (address 1 2 grid) |> left_box state (address 1 3 grid)
-  |> left_box state (address 2 0 grid) |> left_box state (address 2 1 grid)
-  |> left_box state (address 2 2 grid) |> left_box state (address 2 3 grid)
-  |> left_box state (address 3 0 grid) |> left_box state (address 3 1 grid)
-  |> left_box state (address 3 2 grid) |> left_box state (address 3 3 grid)
-
-let rec move_up state box grid =
-  let vbox = value box in
-  let bpos = pos box in
-  let r = fst bpos in
-  let c = snd bpos in
-  if (r = 0) then (grid, score state)
-  else match address (r - 1) c grid with
-    | None -> gen_box (vbox) (r - 1) c grid |> remove_box r c |> 
-              move_up state (box_of_cell (address (r - 1) c grid))
-    | Some box2 -> if value box2 = value box then
-        let new_v = 2 * value box in
-        update_score state ((score state) + new_v);
-        let grid1 = remove_box r c grid in
-        let grid2 = remove_box (r - 1) c grid1 in
-        let grid3 = gen_box new_v (r - 1) c grid2 in
-        (grid3, score state)
-      else (grid, score state)
-
-let rec up_box state cell (grid, scr) =
-  match cell with
-  | None -> (grid, score state)
-  | Some box -> move_up state box grid
-
-let move_all_up state grid = 
-  let scr = score state in
-  up_box state (address 0 3 grid) (grid, scr) |> up_box state (address 0 2 grid)
-  |> up_box state (address 0 1 grid) |> up_box state (address 0 0 grid)
-  |> up_box state (address 1 3 grid) |> up_box state (address 1 2 grid)
-  |> up_box state (address 1 1 grid) |> up_box state (address 1 0 grid)
-  |> up_box state (address 2 3 grid) |> up_box state (address 2 2 grid)
-  |> up_box state (address 2 1 grid) |> up_box state (address 2 0 grid)
-  |> up_box state (address 3 3 grid) |> up_box state (address 3 2 grid)
-  |> up_box state (address 3 1 grid) |> up_box state (address 3 0 grid)
+let move_all st dir =
+  (fold_dir dir) (move_box st dir) st 
 
 let copy st = {
   current_grid = Grid.copy st.current_grid;

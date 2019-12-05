@@ -36,6 +36,7 @@ let cpu_d0 st =
   let g = (st|>grid|>random) in
   new_state g (score st) ((gamelog st) ^ "\n\nCPU's move: " ^ (string_rep g))
 
+type dir = U | D | L | R
 
 let best_tile_d1_dir g i j dir =
   let Some box1 = (address i j g) in
@@ -209,8 +210,7 @@ let rec p1_phase state =
   try
     let next_state  =
       match(parse next_move) with
-      |Quit -> print_endline "thank you for playing"; 
-        output ((gamelog state)^ "\n" ^ (string_rep (grid state))); exit 0
+      | Quit -> print_endline "thank you for playing"; output (string_rep (grid state)); exit 0
       | Up -> move_all state U
       | Down -> move_all state D
       | Left -> move_all state L

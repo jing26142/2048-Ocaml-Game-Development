@@ -34,13 +34,11 @@ val remove_box: int -> int -> t -> t
 (** [value bx] is the value associated with [bx] *)
 val value : box -> int
 
-(**[pos b] is the tuple location of box [b] in the grid *)
 val pos: box -> int*int
 
 (** [empty ()] is the empty grid. *)
 val empty : unit -> t
 
-(**[grid_size t] is the length of the row of grid [t] *)
 val grid_size : t -> int
 
 (**[box_of_cell (Some box)] is [box].

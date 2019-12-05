@@ -209,8 +209,7 @@ let rec p1_phase state =
   try
     let next_state  =
       match(parse next_move) with
-      |Quit -> print_endline "thank you for playing"; 
-        output ((gamelog state)^ "\n" ^ (string_rep (grid state))); exit 0
+      | Quit -> print_endline "thank you for playing"; output (string_rep (grid state)); exit 0
       | Up -> move_all state U
       | Down -> move_all state D
       | Left -> move_all state L
