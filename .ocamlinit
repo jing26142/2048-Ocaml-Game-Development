@@ -1,7 +1,6 @@
 #require "oUnit";;
 #require "yojson";;
 #require "ANSITerminal";;
-#require "core_extended";;
 #directory "_build";;
 #load "grid.cmo";;
 #load "command.cmo";;

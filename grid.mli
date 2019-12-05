@@ -14,7 +14,7 @@ type box
 (** The type of an individual cell in the grid. *)
 type cell = box option
 
-val row: int -> t -> cell array
+val row : int -> t -> cell array
 
 (** [address a b g] returns the cell of location ([a],[b]) in grid [g], where
     [a] is the row number and [b] is the column number.
@@ -60,5 +60,9 @@ val win : t -> bool
 val lose : t -> bool
 
 val content_box : box option -> int
+
+(** [copy g] is a copy of [g] such that any changes made to [copy g] will leave
+    [g] unaffected and vice versa. *)
+val copy : t -> t
 
 

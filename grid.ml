@@ -13,9 +13,7 @@ let rec help_add i count g =
   | _ -> raise Failure
 
 let row a g =
-  help_add a 0 g
-
-
+  help_add a 0 g 
 
 (**[address a b c] returns the cell of location ([a],[b]) in grid [c]*)
 let address a b g =
@@ -99,7 +97,6 @@ let lose g =
     false
   else not (l_vert g)
 
-
-
-
-
+let copy g = 
+  let copy_row r = [|r.(0); r.(1); r.(2); r.(3)|] in 
+  List.fold_left (fun acc r -> acc @ [copy_row r]) [] g 

@@ -9,6 +9,7 @@ type command =
   | Player2 of int * int
   | GameMode1
   | GameMode2
+  | GameMode3
   | Difficulty1
   | Difficulty2
 
@@ -35,6 +36,7 @@ let parse_aux cleanlst =
     then Player2 (int_of_string (List.nth t 0), int_of_string (List.nth t 1))
     else if h = "single" && List.length t = 0 then GameMode1 else if h = "multi" && List.length t = 0 then GameMode2
     else if h = "d0" && List.length t = 0 then Difficulty1 else if h = "d1" && List.length t = 0 then Difficulty2
+    else if h = "reverse" && List.length t = 0 then GameMode3 
     else raise Malformed
 
 

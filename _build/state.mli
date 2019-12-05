@@ -11,6 +11,10 @@
 (** The abstract type of values representing the game state. *)
 type t
 
+val string_row : Grid.box option array -> string
+
+val string_rep : Grid.t -> string
+
 (** [init_state ()] is initial state of the game. In that state the grid will
     have 2 random non-empty cells each containing a box of value 2. *)
 val init_state : unit -> t
@@ -21,7 +25,9 @@ val grid : t -> Grid.t
 (** [score st] is the current score of the state. *)
 val score : t -> int
 
-val new_state: Grid.t -> int -> t
+val gamelog : t -> string
+
+val new_state: Grid.t -> int -> string -> t
 
 val update_score : t -> int -> unit
 
@@ -34,3 +40,7 @@ val move_all_up : t -> Grid.t -> Grid.t * int
 val move_all_left : t -> Grid.t -> Grid.t * int
 
 val move_all_right : t -> Grid.t -> Grid.t * int
+
+(** [copy st] is a copy of [st] such that any changes made to [copy g] will 
+    leave [st] unaffected and vice versa. *) 
+val copy : t -> t 

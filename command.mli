@@ -17,6 +17,7 @@ type command =
   | Player2 of int * int
   | GameMode1
   | GameMode2
+  | GameMode3
   | Difficulty1
   | Difficulty2
 

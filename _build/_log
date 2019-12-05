@@ -1,6 +1,6 @@
 ### Starting build.
 # Target: interface.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:interface.ml, ocaml, ocamldep, quiet, traverse }
-ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules interface.ml > interface.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules interface.ml > interface.ml.depends
 # Target: command.mli.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:mli, file:command.mli, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.mli > command.mli.depends # cached
 # Target: command.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:command.mli, interf, ocaml, quiet, traverse }
@@ -14,7 +14,36 @@ ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules
 # Target: state.cmi, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:mli, file:state.mli, interf, ocaml, quiet, traverse }
 ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o state.cmi state.mli # cached
 # Target: interface.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:interface.cmo, file:interface.ml, implem, ocaml, quiet, traverse }
-ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml # cached
+ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
++ ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o interface.cmo interface.ml
+File "interface.ml", line 40, characters 2-1007:
+40 | ..let Some box1 = (address i j g) in
+41 |   let (di, dj) =
+42 |     match dir with
+43 |     | U -> (-1, 0)
+44 |     | D -> (1, 0)
+...
+77 |             | None -> []
+78 |           end
+79 |         else []
+80 |     end
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+None
+File "interface.ml", line 166, characters 2-357:
+166 | ..let (max :: _) = deltas |> sort compare |> rev in  
+167 |   let best_dir = assoc max dict in 
+168 |   let (g, sc) = 
+169 |     match best_dir with
+170 |     | U -> move_all_up st (grid st)
+171 |     | D -> move_all_down st (grid st)
+172 |     | L -> move_all_left st (grid st)
+173 |     | R -> move_all_right st (grid st)
+174 |   in 
+175 |   new_state g sc ((gamelog st) ^ "\n\nCPU's move: " ^ (string_rep g))
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+[]
 # Target: command.ml.depends, tags: { package(ANSITerminal), package(oUnit), package(yojson), extension:ml, file:command.ml, ocaml, ocamldep, quiet, traverse }
 ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules command.ml > command.ml.depends # cached
 # Target: command.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:command.cmo, file:command.ml, implem, ocaml, quiet, traverse }
@@ -28,5 +57,5 @@ ocamlfind ocamldep -package oUnit -package yojson -package ANSITerminal -modules
 # Target: state.cmo, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, compile, extension:cmo, extension:ml, file:state.cmo, file:state.ml, implem, ocaml, quiet, traverse }
 ocamlfind ocamlc -c -package oUnit -package yojson -package ANSITerminal -o state.cmo state.ml # cached
 # Target: interface.byte, tags: { package(ANSITerminal), package(oUnit), package(yojson), byte, dont_link_with, extension:byte, file:interface.byte, link, ocaml, program, quiet, traverse }
-ocamlfind ocamlc -linkpkg -package oUnit -package yojson -package ANSITerminal command.cmo grid.cmo state.cmo interface.cmo -o interface.byte # cached
+ocamlfind ocamlc -linkpkg -package oUnit -package yojson -package ANSITerminal command.cmo grid.cmo state.cmo interface.cmo -o interface.byte
 # Compilation successful.

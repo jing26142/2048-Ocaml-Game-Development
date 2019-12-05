@@ -1,8 +1,22 @@
 open Grid
 type t = {
   current_grid : Grid.t;
-  mutable score : int
+  mutable score : int;
+  gamelog : string
 }
+
+let rec string_row row =
+  string_of_int(content_box row.(0))^ "|" ^string_of_int(content_box row.(1))^"|"^
+  string_of_int(content_box row.(2))^ "|" ^string_of_int(content_box row.(3))^"|"
+
+
+let string_rep grid =
+  "----------------------------"^
+  "\n|" ^ string_row (row 0 grid) ^
+  "\n|" ^ string_row (row 1 grid) ^
+  "\n|" ^ string_row (row 2 grid) ^
+  "\n|" ^ string_row (row 3 grid)
+
 
 let init_state () =
   let r11 = Random.int 4 in
@@ -10,20 +24,24 @@ let init_state () =
   let r21 = Random.int 4 in
   let r22 = Random.int 4 in
   let r21 = if (r21 = r11 && r22 = r22) then (r11+1) mod 4 else r21 in
-  let grid = empty() in {
-    current_grid = gen_box 2 r11 r12 grid |> gen_box 2 r21 r22;
-    score = 0
+  let grid = empty() in 
+  let c_grid = gen_box 2 r11 r12 grid |> gen_box 2 r21 r22 in {
+    current_grid = c_grid;
+    score = 0;
+    gamelog = string_rep (c_grid);
   }
-
 
 let grid st =
   st.current_grid
 
+let gamelog st =
+  st.gamelog
+
 let score st =
   st.score
 
-let new_state  new_grid score =
-  {current_grid = new_grid; score = score}
+let new_state  new_grid score gamelog =
+  {current_grid = new_grid; score = score; gamelog = gamelog}
 
 
 let update_score st new_score =
@@ -172,3 +190,9 @@ let move_all_up state grid =
   |> up_box state (address 2 1 grid) |> up_box state (address 2 0 grid)
   |> up_box state (address 3 3 grid) |> up_box state (address 3 2 grid)
   |> up_box state (address 3 1 grid) |> up_box state (address 3 0 grid)
+
+let copy st = {
+  current_grid = Grid.copy st.current_grid;
+  score = st.score;
+  gamelog = st.gamelog
+}
