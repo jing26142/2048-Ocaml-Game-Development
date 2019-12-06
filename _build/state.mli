@@ -41,3 +41,6 @@ val move_all : t -> dir -> t
 (** [copy st] is a copy of [st] such that any changes made to [copy g] will 
     leave [st] unaffected and vice versa. *) 
 val copy : t -> t 
+
+(**[string_save g] creates a JSON representation of the grid g*)  
+val string_save : Grid.t -> [> `Assoc of (string * [> `String of string ]) list ]

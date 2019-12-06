@@ -12,6 +12,7 @@ type command =
   | GameMode3
   | Difficulty1
   | Difficulty2
+  | Scorelog
 
 exception Empty
 exception Malformed
@@ -34,9 +35,12 @@ let parse_aux cleanlst =
     then Down else if h = "d" && List.length t =0 then Right
     else if h = "p" && List.length t =2
     then Player2 (int_of_string (List.nth t 0), int_of_string (List.nth t 1))
-    else if h = "single" && List.length t = 0 then GameMode1 else if h = "multi" && List.length t = 0 then GameMode2
-    else if h = "d0" && List.length t = 0 then Difficulty1 else if h = "d1" && List.length t = 0 then Difficulty2
+    else if h = "single" && List.length t = 0 then GameMode1 
+    else if h = "multi" && List.length t = 0 then GameMode2
+    else if h = "d0" && List.length t = 0 then Difficulty1 else if h = "d1" 
+                                                                && List.length t = 0 then Difficulty2
     else if h = "reverse" && List.length t = 0 then GameMode3 
+    else if h = "scorelog" && List.length t = 0 then Scorelog
     else raise Malformed
 
 

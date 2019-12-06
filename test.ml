@@ -15,7 +15,8 @@ let gridw = gen_box 2048 2 3 (grid2 ())
 let gridl () = empty () |> gen_box 2 0 0 |> gen_box 4 0 1 |> gen_box 8 0 2 |>
                gen_box 16 0 3 |> gen_box 32 1 0 |> gen_box 64 1 1 |>
                gen_box 128 1 2 |> gen_box 256 1 3 |> gen_box 512 2 0 |>
-               gen_box 1024 2 1 |> gen_box 2 2 2 |> gen_box 8 2 3 |> gen_box 4 3 0 |> gen_box 8 3 1
+               gen_box 1024 2 1 |> gen_box 2 2 2 
+               |> gen_box 8 2 3 |> gen_box 4 3 0 |> gen_box 8 3 1
                |> gen_box 16 3 2 |> gen_box 32 3 3
 let gridl_t = gridl ()
 let grid3 () = gridl () |> remove_box 2 2

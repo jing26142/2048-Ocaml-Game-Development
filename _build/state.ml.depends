@@ -1,1 +1,1 @@
-state.ml: Array Grid Random
+state.ml: Array Grid List Random Yojson

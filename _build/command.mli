@@ -20,6 +20,8 @@ type command =
   | GameMode3
   | Difficulty1
   | Difficulty2
+  | Scorelog 
+
 
 
 

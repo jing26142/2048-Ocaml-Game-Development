@@ -64,7 +64,8 @@ let random_help = function
 let rec random g =
   let r11 = Random.int 4 in
   let r12 = Random.int 4 in
-  if is_full g then g else if (random_help (address r11 r12 g)) then gen_box 2 r11 r12 g
+  if is_full g then g else if 
+    (random_help (address r11 r12 g)) then gen_box 2 r11 r12 g
   else random g
 
 let win g =
@@ -79,7 +80,8 @@ let l_hori_hlpr row =
   !acc
 
 let rec l_vert_hlpr i = function
-  | h1 :: (h2 :: t) -> content_box h1.(i) = content_box h2.(i) || l_vert_hlpr i (h2 :: t)
+  | h1 :: (h2 :: t) -> 
+    content_box h1.(i) = content_box h2.(i) || l_vert_hlpr i (h2 :: t)
   | h1 :: [] -> false
   | [] -> failwith "bad input"
 
