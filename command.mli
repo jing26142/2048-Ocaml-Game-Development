@@ -22,6 +22,7 @@ type command =
   | TimeMode
   | Load 
   | Save 
+  | Statistics 
 
 (** Raised when an empty command is parsed. *)
 exception Empty

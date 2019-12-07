@@ -7,3 +7,7 @@ val account_str : State.t ->string -> 'a ->
 val account_rep_of_json : Yojson.Basic.t -> t
 
 val games_played : t -> int
+
+val name : t -> string
+
+val last_score : t -> int

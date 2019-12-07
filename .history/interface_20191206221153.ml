@@ -608,8 +608,8 @@ let main () =
       "\nType single for 1 player. " ^ 
       "\nType multi for 2 player game mode." ^
       "\nType reverse for reverse mode."^
-      "\nType timemode for the high stress version of the game"^
-      "\nType load to load a previously saved game"^
+      "\nType timemode for the high stress version of the game"
+      ^"\nType load to load a previously saved game"^
       "\nType scorelog to see where you stand\n"));
   let game_choice = read_line() in
   match(parse game_choice) with

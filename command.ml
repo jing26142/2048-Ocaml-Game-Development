@@ -16,6 +16,7 @@ type command =
   | TimeMode
   | Load 
   | Save
+  | Statistics 
 
 exception Empty
 exception Malformed
@@ -45,6 +46,7 @@ let parse_aux cleanlst =
     else if h = "scorelog" && List.length t = 0 then Scorelog
     else if h = "load" && List.length t = 0 then Load 
     else if h = "save" && List.length t = 0 then Save
+    else if h = "statistics" && List.length t = 0 then Statistics
     else raise Malformed
 
 

@@ -588,14 +588,14 @@ let rec account_stats () =
       let fn_jsn = Yojson.Basic.from_file fn in
       let account = account_rep_of_json fn_jsn in
       print_endline ("Type num to see the number of games you have played.
-      "^"\n Type score to see last score");
+  "^"\n Type score to see last score");
       let choice = read_line() in 
       if (choice = "num") 
       then
         print_endline (string_of_int (games_played account))
       else if (choice = "score")
       then 
-        print_endline (string_of_int (last_score account))
+        print_endline (string_of_int (games_played account))
     )
   else 
     account_stats()
@@ -604,12 +604,10 @@ let rec account_stats () =
 
 let main () =
   ANSITerminal.(print_string [red] (
-      "\n\nWelcome to the 2048 game."^
-      "\nType single for 1 player. " ^ 
-      "\nType multi for 2 player game mode." ^
-      "\nType reverse for reverse mode."^
-      "\nType timemode for the high stress version of the game"^
-      "\nType load to load a previously saved game"^
+      "\n\nWelcome to the 2048 game. Type single for 1 player or " ^ 
+      "type multi for 2 player game mode or type reverse for reverse mode\n"^
+      "type timemode for the high stress version of the game"
+      ^"\n Type load to load a previously saved game"^
       "\nType scorelog to see where you stand\n"));
   let game_choice = read_line() in
   match(parse game_choice) with
@@ -619,7 +617,7 @@ let main () =
   | TimeMode -> chose_diff4(init_state ())
   | Scorelog -> read_file()
   | Load -> load_game() 
-  | Statistics -> account_stats()
+  | Statistics -> 
   | _ -> print_endline "You did something wrong, please try again"
 
 

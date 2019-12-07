@@ -30,3 +30,9 @@ let account_rep_of_json j = {
 
 let games_played acc =
   acc.games_played
+
+let name acc =
+  acc.name
+
+let last_score acc =
+  acc.last_score

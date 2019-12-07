@@ -560,56 +560,18 @@ and load_game () =
 
   main_reload new_state
 
-(* let outacc jsn name state =
-   (* ANSITerminal.(print_string [red] 
-                  ("Enter account name to be saved as\n")); *)
-   let savename = name^"_acc" in
-   if (Sys.file_exists savename) then 
-    let acc_jsn = Yojson.Basic.from_file savename in
-    let acc = account_rep_of_json acc_jsn in
-    let games_played = (games_played acc) + 1 in
-    let jsn = account_str state name (score state) games_played in
-    let jsnfile = open_out (savename) in
-    output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
-    final_details() 
-   else
-    let jsnfile = open_out savename in
-    output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
-    final_details()  *)
 
-
-let rec account_stats () = 
-  print_endline ("Please type the account of the person you would 
-  want to view the stats of");
-  let acc = read_line() in
-  let fn = acc^"_acc" in
-  if (Sys.file_exists fn) then
-    (
-      let fn_jsn = Yojson.Basic.from_file fn in
-      let account = account_rep_of_json fn_jsn in
-      print_endline ("Type num to see the number of games you have played.
-      "^"\n Type score to see last score");
-      let choice = read_line() in 
-      if (choice = "num") 
-      then
-        print_endline (string_of_int (games_played account))
-      else if (choice = "score")
-      then 
-        print_endline (string_of_int (last_score account))
-    )
-  else 
-    account_stats()
-
+let account_stats = 
+  print_endline ("Type num to see the number of games you have played.
+  "^"\n Type score to see last score")
 
 
 let main () =
   ANSITerminal.(print_string [red] (
-      "\n\nWelcome to the 2048 game."^
-      "\nType single for 1 player. " ^ 
-      "\nType multi for 2 player game mode." ^
-      "\nType reverse for reverse mode."^
-      "\nType timemode for the high stress version of the game"^
-      "\nType load to load a previously saved game"^
+      "\n\nWelcome to the 2048 game. Type single for 1 player or " ^ 
+      "type multi for 2 player game mode or type reverse for reverse mode\n"^
+      "type timemode for the high stress version of the game"
+      ^"\n Type load to load a previously saved game"^
       "\nType scorelog to see where you stand\n"));
   let game_choice = read_line() in
   match(parse game_choice) with
@@ -619,7 +581,7 @@ let main () =
   | TimeMode -> chose_diff4(init_state ())
   | Scorelog -> read_file()
   | Load -> load_game() 
-  | Statistics -> account_stats()
+  | Statistics -> 
   | _ -> print_endline "You did something wrong, please try again"
 
 
