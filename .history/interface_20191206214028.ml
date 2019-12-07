@@ -33,15 +33,15 @@ let final_details () =
 
 
 let outacc jsn name state =
-  (* ANSITerminal.(print_string [red] 
-                  ("Enter account name to be saved as\n")); *)
-  let savename = name^"_acc" in
+  ANSITerminal.(print_string [red] 
+                  ("Enter account name to be saved as\n"));
+  let savename = read_line() in
   if (Sys.file_exists savename) then 
     let acc_jsn = Yojson.Basic.from_file savename in
     let acc = account_rep_of_json acc_jsn in
     let games_played = (games_played acc) + 1 in
     let jsn = account_str state name (score state) games_played in
-    let jsnfile = open_out (savename) in
+    let jsnfile = open_out (savename^"_acc") in
     output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
     final_details() 
   else

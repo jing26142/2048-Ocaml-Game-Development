@@ -23,7 +23,7 @@ let update_leaderboard () name score =
   exit 0
 
 let final_details () = 
-  print_endline "Please enter your name"; 
+  print_endline "Please enter your name to be inputted into leader board"; 
   let name = read_line() in 
 
   print_endline "Please enter your final score"; 
@@ -32,12 +32,18 @@ let final_details () =
   update_leaderboard () name final_score 
 
 
-let outacc jsn name =
-  ANSITerminal.(print_string [red] 
-                  ("Enter account name to be saved as\n"));
-  let savename = read_line()^"_acc" in
+let outacc jsn name state =
+  (* ANSITerminal.(print_string [red] 
+                  ("Enter account name to be saved as\n")); *)
+  let savename = name^"_acc" in
   if (Sys.file_exists savename) then 
-    failwith "go in json and edit count"
+    let acc_jsn = Yojson.Basic.from_file savename in
+    let acc = account_rep_of_json acc_jsn in
+    let games_played = (games_played acc) + 1 in
+    let jsn = account_str state name (score state) games_played in
+    let jsnfile = open_out (savename) in
+    output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
+    final_details() 
   else
     let jsnfile = open_out savename in
     output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
@@ -49,8 +55,8 @@ let parse_acc state =
   if (ans = "Y" or ans = "y") then (
     print_endline "Type in your account";
     let acc_name = read_line () in
-    let jsn = account_str state acc_name in
-    outacc jsn acc_name)
+    let jsn = account_str state acc_name (score state) 1 in
+    outacc jsn acc_name state)
   else final_details ()
 
 

@@ -14,14 +14,14 @@ type t = {
 
 
 
-let account_str st name score played = 
+let account_str st name score = 
   let gamelog = gamelog st in
   `Assoc [
     ("name", `String name); ("last_score", `Int score);
-    ("last_gamelog" , `String gamelog); ("games_played", `Int played)
+    ("last_gamelog" , `String gamelog); ("games_played", `Int 1)
   ]
 
-let account_rep_of_json j = {
+let acc_rep_of_json j = {
   name = j |> member "name" |> to_string;
   last_score = j |> member "last_score" |> to_int;
   last_gamelog = j |> member "last_gamelog" |> to_string;

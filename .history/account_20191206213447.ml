@@ -21,7 +21,7 @@ let account_str st name score played =
     ("last_gamelog" , `String gamelog); ("games_played", `Int played)
   ]
 
-let account_rep_of_json j = {
+let acc_rep_of_json j = {
   name = j |> member "name" |> to_string;
   last_score = j |> member "last_score" |> to_int;
   last_gamelog = j |> member "last_gamelog" |> to_string;
