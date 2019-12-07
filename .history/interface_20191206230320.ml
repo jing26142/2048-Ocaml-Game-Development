@@ -464,8 +464,7 @@ let rec interface3 state d =
 
 let rec chose_diff ns =
   ANSITerminal.(print_string [red] 
-                  "type d0 for easy mode and d1 for 
-                  medium mode and d2 for hard mode\n");
+                  "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line() in
   match (parse diff_choice) with
   | Difficulty1 -> interface (ns) 0
@@ -643,8 +642,7 @@ let main () =
       "\nType reverse for reverse mode."^
       "\nType timemode for the high stress version of the game"^
       "\nType load to load a previously saved game"^
-      "\nType scorelog to see where you stand"^
-      "\nType statistics to query statistics from our database\n"));
+      "\nType scorelog to see where you stand\n"));
   let game_choice = read_line() in
   match(parse game_choice) with
   | GameMode1 ->  chose_diff (init_state ())

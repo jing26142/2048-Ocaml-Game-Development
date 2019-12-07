@@ -9,13 +9,7 @@ open Account
 
 type dir = State.dir
 
-let time () = 
-  let cur_time_sec = (Unix.time ()) in 
-  let final_time = Unix.localtime cur_time_sec in 
-  let year = string_of_int (final_time.tm_year +1900) in 
-  let month = string_of_int (final_time.tm_mon +1) in
-  let date = string_of_int final_time.tm_mday in
-  month^"/"^date^"/"^year
+
 
 
 let update_leaderboard () name score = 
@@ -37,8 +31,6 @@ let final_details () =
 
   update_leaderboard () name final_score 
 
-let get_dj fn =
-  date_joined fn
 
 let outacc jsn name state =
   (* ANSITerminal.(print_string [red] 
@@ -47,13 +39,8 @@ let outacc jsn name state =
   if (Sys.file_exists savename) then 
     let acc_jsn = Yojson.Basic.from_file savename in
     let acc = account_rep_of_json acc_jsn in
-    let dj = get_dj acc in
-    let title = title acc in
-    let score = score state in
-    let score_log = string_of_int(score) ^ "," ^ (all_scores acc) in
     let games_played = (games_played acc) + 1 in
-    let jsn = account_str state name score 
-        games_played dj (time()) score_log title in
+    let jsn = account_str state name (score state) games_played in
     let jsnfile = open_out (savename) in
     output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
     final_details() 
@@ -66,12 +53,9 @@ let parse_acc state =
   print_endline "Do you want to save your record for this account? Y/N";
   let ans = read_line () in
   if (ans = "Y" or ans = "y") then (
-    print_endline "Type in your NetID";
+    print_endline "Type in your account";
     let acc_name = read_line () in
-    print_endline "Please type in your desired title";
-    let acc_title = read_line () in
-    let jsn = account_str state acc_name (score state) 1 (time()) (time()) 
-        (string_of_int(score state)) acc_title in
+    let jsn = account_str state acc_name (score state) 1 in
     outacc jsn acc_name state)
   else final_details ()
 
@@ -464,8 +448,7 @@ let rec interface3 state d =
 
 let rec chose_diff ns =
   ANSITerminal.(print_string [red] 
-                  "type d0 for easy mode and d1 for 
-                  medium mode and d2 for hard mode\n");
+                  "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line() in
   match (parse diff_choice) with
   | Difficulty1 -> interface (ns) 0
@@ -497,7 +480,13 @@ let rec chose_diff4 ns =
   | _ -> print_endline "invalid difficulty level, try again"; chose_diff4 ns
 
 let display_time () = 
-  print_endline ("You have logged on to the 2048 challenge on: "^ time())
+  let cur_time_sec = (Unix.time ()) in 
+  let final_time = Unix.localtime cur_time_sec in 
+  let year = string_of_int (final_time.tm_year +1900) in 
+  let month = string_of_int (final_time.tm_mon +1) in
+  let date = string_of_int final_time.tm_mday in
+
+  print_endline ("You have logged on to the 2048 challenge on: "^month^"/"^date^"/"^year)
 
 let read_file () = 
   let file = "scorelog.txt" in
@@ -598,12 +587,8 @@ let rec account_stats () =
     (
       let fn_jsn = Yojson.Basic.from_file fn in
       let account = account_rep_of_json fn_jsn in
-      print_endline ("Type name to query the account name. 
-      Type score to query last score received. 
-      Type num to query the number of games played by the user.
-      Type dj to query the date the user created the account.
-      Type lp to query the last game played by the user.
-      Type title look at the creative title the user inputted!");
+      print_endline ("Type num to see the number of games you have played.
+      "^"\n Type score to see last score");
       let choice = read_line() in 
       if (choice = "num") 
       then
@@ -611,22 +596,6 @@ let rec account_stats () =
       else if (choice = "score")
       then 
         print_endline (string_of_int (last_score account))
-      else if (choice = "dj")
-      then 
-        print_endline (date_joined account)
-      else if (choice = "name")
-      then
-        print_endline (name account)
-      else if (choice = "lp")
-      then
-        print_endline (last_played account)
-      else if (choice = "title")
-      then
-        print_endline (title account)
-      else
-        print_endline ("You entered an non-existant stat query. 
-        Please try again");
-      account_stats()
     )
   else
     print_endline ("The account you searched for does not exist"); 
@@ -643,8 +612,7 @@ let main () =
       "\nType reverse for reverse mode."^
       "\nType timemode for the high stress version of the game"^
       "\nType load to load a previously saved game"^
-      "\nType scorelog to see where you stand"^
-      "\nType statistics to query statistics from our database\n"));
+      "\nType scorelog to see where you stand\n"));
   let game_choice = read_line() in
   match(parse game_choice) with
   | GameMode1 ->  chose_diff (init_state ())

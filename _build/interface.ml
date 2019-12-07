@@ -464,8 +464,7 @@ let rec interface3 state d =
 
 let rec chose_diff ns =
   ANSITerminal.(print_string [red] 
-                  "type d0 for easy mode and d1 for 
-                  medium mode and d2 for hard mode\n");
+                  "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line() in
   match (parse diff_choice) with
   | Difficulty1 -> interface (ns) 0

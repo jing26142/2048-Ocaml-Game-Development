@@ -66,7 +66,7 @@ let parse_acc state =
   print_endline "Do you want to save your record for this account? Y/N";
   let ans = read_line () in
   if (ans = "Y" or ans = "y") then (
-    print_endline "Type in your NetID";
+    print_endline "Type in your account";
     let acc_name = read_line () in
     print_endline "Please type in your desired title";
     let acc_title = read_line () in
@@ -464,8 +464,7 @@ let rec interface3 state d =
 
 let rec chose_diff ns =
   ANSITerminal.(print_string [red] 
-                  "type d0 for easy mode and d1 for 
-                  medium mode and d2 for hard mode\n");
+                  "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line() in
   match (parse diff_choice) with
   | Difficulty1 -> interface (ns) 0
@@ -643,8 +642,7 @@ let main () =
       "\nType reverse for reverse mode."^
       "\nType timemode for the high stress version of the game"^
       "\nType load to load a previously saved game"^
-      "\nType scorelog to see where you stand"^
-      "\nType statistics to query statistics from our database\n"));
+      "\nType scorelog to see where you stand\n"));
   let game_choice = read_line() in
   match(parse game_choice) with
   | GameMode1 ->  chose_diff (init_state ())
