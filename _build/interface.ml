@@ -4,8 +4,13 @@ open Command
 open Printf
 open Pervasives
 open Yojson.Basic.Util
+open Savefile
+open Account
 
 type dir = State.dir
+
+
+
 
 let update_leaderboard () name score = 
   let message = String.concat " " [">";name;"-";score;"<"] in 
@@ -20,10 +25,34 @@ let update_leaderboard () name score =
 let final_details () = 
   print_endline "Please enter your name"; 
   let name = read_line() in 
+
   print_endline "Please enter your final score"; 
   let final_score = read_line() in 
 
   update_leaderboard () name final_score 
+
+
+let outacc jsn name =
+  ANSITerminal.(print_string [red] 
+                  ("Enter account name to be saved as\n"));
+  let savename = read_line()^"_acc" in
+  if (Sys.file_exists savename) then 
+    failwith "go in json and edit count"
+  else
+    let jsnfile = open_out savename in
+    output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
+    final_details() 
+
+let parse_acc state =
+  print_endline "Do you want to save your record for this account? Y/N";
+  let ans = read_line () in
+  if (ans = "Y" or ans = "y") then (
+    print_endline "Type in your account";
+    let acc_name = read_line () in
+    let jsn = account_str state acc_name in
+    outacc jsn acc_name)
+  else final_details ()
+
 
 (*[display grid] prints a 4 by 4 grid with values of the current state *)
 let display grid =
@@ -46,10 +75,26 @@ let output log =
   output_string txtfile log;
   close_out txtfile;;
 
-let outsave jsn = 
-  let jsnfile = open_out "./save.json" in
+let outsave jsn state = 
+  ANSITerminal.(print_string [red] 
+                  ("Please enter the name of your save file\n"));
+  let savename = read_line() in
+  let jsnfile = open_out savename in
   output_string jsnfile (Yojson.Basic.pretty_to_string jsn);
-  close_out jsnfile;;
+  close_out jsnfile;
+  parse_acc state;;
+
+
+let parse_save jsn state = 
+  print_endline "Do you want to save the file? 
+  Type Y to save and N if you dont want to";
+
+  let ans = read_line () in
+
+  if (ans = "Y" or ans = "y") then outsave jsn state else parse_acc state
+
+
+
 
 let new_log st =
   ((gamelog st)^ "\n" ^ (string_rep (grid st)))
@@ -192,7 +237,7 @@ let delta_score2 st dir =
   delta1 + (max + max2) / 2
 
 (** TODO: DOCUMENT. *)
-let cpu_p1 st d = 
+let cpu_p1 d st = 
   let open List in
   let dirs = [U; D; L; R] in
   let f = 
@@ -205,13 +250,70 @@ let cpu_p1 st d =
   let (max :: _) = deltas |> sort compare |> rev in  
   let best_dir = assoc max dict in 
   move_all st best_dir
+
+let score_d2 i j st =
+  match (st |> grid |> address i j) with 
+  | Some _ -> print_endline "inf"; max_int
+  | None ->
+    let clone = State.copy st in 
+    let g_sim1 = clone |> grid |> gen_box 2 i j in 
+    let sim1 = new_state g_sim1 (score clone) (gamelog clone) in 
+    let sim2 = sim1 |> cpu_p1 2 |> cpu_p1 2 in 
+    print_endline (string_of_int (score sim2)); score sim2
+
+(** [cpu_d2 st] is a copy of [st] with a box of value 2 added to the grid by 
+    the CPU corresponding to difficulty level 2. This algorithm attempts to 
+    minimize the score increase by 2 consecutive moves made by [cpu_p1]. *)
+let cpu_d2 st = 
+  let acc = ref [] in 
+  for i = 0 to 3 do 
+    for j = 0 to 3 do 
+      acc := ((score_d2 i j st), (i, j)) :: !acc
+    done 
+  done; 
+  let dict = !acc in 
+  let sorted = List.sort_uniq (fun (x, _) (y, _) -> compare x y) dict in 
+  let g =
+    match sorted with 
+    | ((_, (i, j))) :: _ :: _ :: _ -> st |> grid |> gen_box 2 i j
+    | _ :: _ :: [] -> st |> grid |> random
+    | _ -> failwith "bad input"
+  in
+  new_state g (score st) ((gamelog st) ^ "\n\nCPU's move: " ^ (string_rep g))
 (*----------------------------------------------------------------------------*)
 
 (*[new_value grid] adds either a 2 or 4 to a random cell containing a zero *)
-let rec new_value grid =
-  failwith "unimplemented"
+
+let exit_time_mode state = 
+  print_endline "Sorry you took more than 5 seconds to make a move: GAME OVER";
+  parse_save (string_save state) state
+
+let rec p1_phase_timed state =
+  let start_time = int_of_float (Unix.time ()) in 
+  let next_move = read_line() in
 
 
+  try
+
+    if(int_of_float (Unix.time ()) - start_time > 5) then (exit_time_mode state);
+    let next_state  =
+      match(parse next_move) with
+      |Quit -> print_endline "thank you for playing"; 
+        output ((gamelog state)^ "\n" ^ (string_rep (grid state))); 
+        parse_save (string_save state) state;
+      | Up -> move_all state U
+      | Down -> move_all state D
+      | Left -> move_all state L
+      | Right -> move_all state R
+      |_ -> print_endline "invalid player command"; p1_phase_timed state
+    in
+    let g = grid next_state in
+    let scr = score next_state in
+    (new_state g scr 
+       ((gamelog state)^ "\nP1's move:" ^ (string_rep (grid state))))
+  with
+  | _ -> print_endline "You did something wrong, please try again"; 
+    p1_phase_timed state
 
 let rec p1_phase state =
   let next_move = read_line() in
@@ -220,8 +322,7 @@ let rec p1_phase state =
       match(parse next_move) with
       |Quit -> print_endline "thank you for playing"; 
         output ((gamelog state)^ "\n" ^ (string_rep (grid state)));
-        outsave (string_save (grid state)); 
-        final_details();
+        parse_save (string_save state) state;
       | Up -> move_all state U
       | Down -> move_all state D
       | Left -> move_all state L
@@ -244,7 +345,7 @@ let rec p2_phase state =
   if win grid2 then 
     (print_endline "Congratulation Player 1. You Win!";
      output ((gamelog state)^ "\n" ^ (string_rep (grid state))); 
-     final_details();)
+     parse_save (string_save state) state;)
   else
     print_endline "Player 2's turn";
   p2_turn state2
@@ -270,7 +371,7 @@ and p2_turn state2 =
         if lose fgrid then
           (print_endline "Congratulation Player 2. You Win!";
            output ((gamelog state2)^ "\n" ^ (string_rep (grid state2))); 
-           final_details();)
+           parse_save (string_save state2) state2;)
         else 
           (new_state fgrid (score state2) 
              ((gamelog state2)^ "\n\nP2's move:" ^ (string_rep (grid state2))))
@@ -295,12 +396,28 @@ let rec interface state d =
   if win next_grid then
     (print_endline "Congratulations! You win!";  
      output ((gamelog state)^ "\n" ^ (string_rep (grid state))); 
-     final_details();)
+     parse_save (string_save state) state;)
   else if lose next_grid then
     (print_endline "Game Over";
      output ((gamelog state)^ "\n" ^ (string_rep (grid state))); 
-     final_details();)
+     parse_save (string_save state) state;)
   else interface next_state d
+
+let rec interface4 state d =
+  display (to_matrix (grid state));
+  print_endline (("Current Score: " ^ string_of_int (score state)));
+  let st' = p1_phase_timed state in
+  let next_state = (match_diff d) st' in
+  let next_grid = grid state in
+  if win next_grid then
+    (print_endline "Congratulations! You win!";  
+     output ((gamelog state)^ "\n" ^ (string_rep (grid state))); 
+     parse_save (string_save state) state;)
+  else if lose next_grid then
+    (print_endline "Game Over";
+     output ((gamelog state)^ "\n" ^ (string_rep (grid state))); 
+     parse_save (string_save state) state;)
+  else interface4 next_state d
 
 let rec interface2 state =
   display (to_matrix (grid state));
@@ -308,13 +425,13 @@ let rec interface2 state =
 
 let rec rev_phase state d =
   print_endline "CPU's Turn";
-  let state2 = cpu_p1 state d in
+  let state2 = cpu_p1 d state in
   display (to_matrix (grid state2));
   let grid2 = grid state2 in
   if win grid2 then 
     (print_endline "Game Over";  
      output ((gamelog state)^ "\n" ^ (string_rep (grid state))); 
-     final_details();)
+     parse_save (string_save state) state;)
   else
     print_endline "Your turn";
   p2_turn state2
@@ -323,23 +440,47 @@ let rec interface3 state d =
   display (to_matrix (grid state));
   interface3 (rev_phase state d) d
 
-let rec chose_diff () =
+let rec chose_diff ns =
   ANSITerminal.(print_string [red] 
                   "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line() in
   match (parse diff_choice) with
-  | Difficulty1 -> interface (init_state ()) 0
-  | Difficulty2 -> interface (init_state ()) 1
-  | _ -> print_endline "invalid difficulty level, try again"; chose_diff ()
+  | Difficulty1 -> interface (ns) 0
+  | Difficulty2 -> interface (ns) 1
+  | Difficulty3 -> interface (ns) 2
+  | _ -> print_endline "invalid difficulty level, try again"; chose_diff ns
 
-let rec choose_diff3 () =
+
+
+
+let rec choose_diff3 ns =
   ANSITerminal.(print_string [red] 
                   "type d0 for easy mode and d1 for hard mode\n");
   let diff_choice = read_line () in 
   match (parse diff_choice) with
-  | Difficulty1 -> interface3 (init_state ()) 1
-  | Difficulty2 -> interface3 (init_state ()) 2
-  | _ -> print_endline "invalid difficulty level, try again"; choose_diff3 ()  
+  | Difficulty1 -> interface3 (ns) 1
+  | Difficulty2 -> interface3 (ns) 2
+  | _ -> print_endline "invalid difficulty level, try again"; choose_diff3 ns 
+
+let rec chose_diff4 ns =
+  ANSITerminal.(print_string [red] 
+                  ("type d0 for easy mode and d1 for hard mode\n"^
+                   "\nyou will have 4 seconds to 
+                  play every move else you lose!"));
+  let diff_choice = read_line() in
+  match (parse diff_choice) with
+  | Difficulty1 -> interface4 (ns) 0
+  | Difficulty2 -> interface4 (ns) 1
+  | _ -> print_endline "invalid difficulty level, try again"; chose_diff4 ns
+
+let display_time () = 
+  let cur_time_sec = (Unix.time ()) in 
+  let final_time = Unix.localtime cur_time_sec in 
+  let year = string_of_int (final_time.tm_year +1900) in 
+  let month = string_of_int (final_time.tm_mon +1) in
+  let date = string_of_int final_time.tm_mday in
+
+  print_endline ("You have logged on to the 2048 challenge on: "^month^"/"^date^"/"^year)
 
 let read_file () = 
   let file = "scorelog.txt" in
@@ -361,22 +502,77 @@ let read_file () =
         "\nType scorelog to see where you stand\n"));
     let game_choice = read_line() in
     match(parse game_choice) with
-    | GameMode1 ->  chose_diff ()
+    | GameMode1 ->  chose_diff (init_state () )
     | GameMode2 -> interface2 (init_state ())
     | _ -> print_endline "You did something wrong, please try again" 
+
+
+let rec chose_diff_reload () ns=
+  ANSITerminal.(print_string [red] 
+                  "type d0 for easy mode and d1 for hard mode\n");
+  let diff_choice = read_line() in
+  match (parse diff_choice) with
+  | Difficulty1 -> interface ns 0
+  | Difficulty2 -> interface ns 1
+  | Difficulty3 -> interface ns 2
+  | _ -> print_endline "invalid difficulty level, try again"; chose_diff ns
+
+
+
+let rec main_reload ns = 
+  ANSITerminal.(print_string [red] (
+      "\n\You have loaded a previously attempted game. 
+      Type single to resume 1 player mode or " ^ 
+      "type multi to resume 2 player game mode 
+      or type reverse to resume reverse mode\n"^
+      "type timemode to resume the high stress version of the game"
+      ^"\n Type load to load some other previously saved game"^
+      "\nType scorelog to see where you stand\n"));
+
+  let game_choice = read_line() in
+  match(parse game_choice) with
+  | GameMode1 ->  chose_diff ns
+  | GameMode2 -> interface2 ns
+  | GameMode3 -> choose_diff3 ns
+  | TimeMode -> chose_diff4 ns
+  | Scorelog -> read_file()
+  | Load -> load_game() 
+  | _ -> print_endline "You did something wrong, please try again"
+
+
+
+
+
+and load_game () =
+
+  print_endline "Please enter the file that your want to load.
+   Remember that it must be a .json file";
+  let file_to_load = read_line () in 
+  let game = Yojson.Basic.from_file file_to_load in 
+  let file = state_rep_of_json game in 
+  let new_state = create_state file in 
+
+  main_reload new_state
+
+
+
 
 
 let main () =
   ANSITerminal.(print_string [red] (
       "\n\nWelcome to the 2048 game. Type single for 1 player or " ^ 
       "type multi for 2 player game mode or type reverse for reverse mode\n"^
+      "type timemode for the high stress version of the game"
+      ^"\n Type load to load a previously saved game"^
       "\nType scorelog to see where you stand\n"));
   let game_choice = read_line() in
   match(parse game_choice) with
-  | GameMode1 ->  chose_diff ()
+  | GameMode1 ->  chose_diff (init_state ())
   | GameMode2 -> interface2 (init_state ())
-  | GameMode3 -> choose_diff3 ()
+  | GameMode3 -> choose_diff3 (init_state ())
+  | TimeMode -> chose_diff4(init_state ())
   | Scorelog -> read_file()
+  | Load -> load_game() 
   | _ -> print_endline "You did something wrong, please try again"
 
 

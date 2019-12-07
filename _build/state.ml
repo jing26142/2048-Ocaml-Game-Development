@@ -1,5 +1,4 @@
 open Grid
-open Yojson.Basic.Util
 type t = {
   current_grid : Grid.t;
   mutable score : int;
@@ -9,8 +8,10 @@ type t = {
 type dir = U|D|L|R
 
 let rec string_row row =
-  string_of_int(content_box row.(0))^ "|" ^string_of_int(content_box row.(1))^"|"^
-  string_of_int(content_box row.(2))^ "|" ^string_of_int(content_box row.(3))^"|"
+  string_of_int(content_box row.(0)) ^ "|" ^
+  string_of_int(content_box row.(1)) ^ "|" ^
+  string_of_int(content_box row.(2)) ^ "|" ^
+  string_of_int(content_box row.(3))^"|"
 
 
 let string_rep grid =
@@ -20,19 +21,7 @@ let string_rep grid =
   "\n|" ^ string_row (row 2 grid) ^
   "\n|" ^ string_row (row 3 grid)
 
-let rec str_list row =
-  match row with
-  |[] -> ""
-  |h::t -> string_of_int(h) ^ "," ^ (str_list t)
 
-let string_save grid =
-  let grid_lst = to_matrix grid in
-  let row0 = str_list (List.nth grid_lst 0) in
-  let row1 = str_list (List.nth grid_lst 1) in
-  let row2 = str_list (List.nth grid_lst 2) in
-  let row3 = str_list (List.nth grid_lst 3) in
-  `Assoc [ ("row0", `String row0); ("row1"), `String row1;
-           ("row2", `String row2); ("row3"), `String row3;]
 
 let init_state () =
   let r11 = Random.int 4 in
@@ -137,4 +126,14 @@ let copy st = {
   score = st.score;
   gamelog = st.gamelog
 }
+
+
+
+
+
+
+
+
+
+
 
